@@ -388,7 +388,6 @@ const Materials: React.FC = () => {
           })}
         </div>
       </div>
-    </div>
   );
 };
 
