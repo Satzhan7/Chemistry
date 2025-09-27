@@ -383,4 +383,12 @@ const Materials: React.FC = () => {
                 >
                   Материалдарды көру
                 </button>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+z  );
+};
+
 export default Materials;
