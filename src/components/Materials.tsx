@@ -383,9 +383,4 @@ const Materials: React.FC = () => {
                 >
                   Материалдарды көру
                 </button>
-              </div>
-            );
-          })}
-};
-
 export default Materials;
