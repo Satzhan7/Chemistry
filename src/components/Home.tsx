@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, BookOpen, Users, TrendingUp, Beaker, Atom } from 'lucide-react';
+import { Award, BookOpen, Users, Beaker } from 'lucide-react';
 
 const Home: React.FC = () => {
   const stats = [
