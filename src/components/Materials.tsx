@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { Upload, FileText, Image, Video, Download, Search, Filter, Eye, Trash2, Calendar, File as FileIcon } from 'lucide-react';
+import React, { useState } from 'react';
+import { Upload, FileText, Image, Video, Download, Search, Filter, Eye, Trash2, Calendar, File as FileIcon, Plus } from 'lucide-react';
 
 interface Material {
   id: number;
@@ -17,9 +17,57 @@ const Materials: React.FC = () => {
   const [selectedChapter, setSelectedChapter] = useState('all');
   const [selectedType, setSelectedType] = useState('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [materials, setMaterials] = useState<Material[]>([]);
-
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [materials, setMaterials] = useState<Material[]>([
+    {
+      id: 1,
+      title: 'Химияға кіріспе жазбалары',
+      type: 'pdf',
+      chapter: '1-тарау: Негізгі ұғымдар',
+      description: 'Химияның негізгі ұғымдары мен терминологиясын қамтитын толық жазбалар.',
+      uploadDate: '2025-01-15',
+      size: '2.3 MB',
+      url: '#'
+    },
+    {
+      id: 2,
+      title: 'Атом құрылысы презентациясы',
+      type: 'ppt',
+      chapter: '2-тарау: Атом құрылысы',
+      description: 'Атом құрылысы мен электрон конфигурациясын түсіндіретін көрнекі презентация.',
+      uploadDate: '2025-01-14',
+      size: '5.1 MB',
+      url: '#'
+    },
+    {
+      id: 3,
+      title: 'Химиялық байланыс зертханасы видеосы',
+      type: 'video',
+      chapter: '3-тарау: Химиялық байланыс',
+      description: 'Иондық және коваленттік байланыстың зертханалық көрсетілімі.',
+      uploadDate: '2025-01-13',
+      url: '#'
+    },
+    {
+      id: 4,
+      title: 'Периодтық кесте анықтамалығы',
+      type: 'image',
+      chapter: '2-тарау: Атом құрылысы',
+      description: 'Электрон конфигурациялары бар жоғары ажыратымдылықтағы периодтық кесте.',
+      uploadDate: '2025-01-12',
+      size: '1.8 MB',
+      url: '#'
+    },
+    {
+      id: 5,
+      title: 'Реакция механизмдері жұмыс парағы',
+      type: 'doc',
+      chapter: '4-тарау: Химиялық реакциялар',
+      description: 'Реакция механизмдерін түсіну үшін жаттығу есептері.',
+      uploadDate: '2025-01-11',
+      size: '0.8 MB',
+      url: '#'
+    }
+  ]);
 
   const chapters = [
     '1-тарау: Негізгі ұғымдар',
@@ -104,13 +152,6 @@ const Materials: React.FC = () => {
     }
   };
 
-  const triggerUpload = (accept: string) => {
-    if (fileInputRef.current) {
-      fileInputRef.current.accept = accept;
-      fileInputRef.current.click();
-    }
-  };
-
   const filteredMaterials = materials.filter(material => {
     const matchesSearch = material.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          material.description.toLowerCase().includes(searchTerm.toLowerCase());
@@ -122,41 +163,15 @@ const Materials: React.FC = () => {
 
   return (
     <div className="space-y-8">
-      {/* Upload Section */}
-      <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
-          <label className="flex-1 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center cursor-pointer">
-            <Upload className="w-6 h-6 text-gray-400 mx-auto mb-2" />
-            <p className="text-gray-600 text-sm mb-2">Файлдарды сүйреп апарыңыз немесе таңдаңыз</p>
-            <input
-              ref={fileInputRef}
-              type="file"
-              multiple
-              onChange={handleFileUpload}
-              className="hidden"
-              accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.gif,.mp4,.avi,.mov"
-            />
-          </label>
-          <div className="flex flex-wrap gap-2">
-            <button onClick={() => triggerUpload('.pdf')} className="flex items-center space-x-1 px-3 py-2 bg-red-100 text-red-700 rounded-lg text-sm">
-              <FileText className="w-4 h-4" />
-              <span>PDF</span>
-            </button>
-            <button onClick={() => triggerUpload('.jpg,.jpeg,.png,.gif')} className="flex items-center space-x-1 px-3 py-2 bg-green-100 text-green-700 rounded-lg text-sm">
-              <Image className="w-4 h-4" />
-              <span>Сурет</span>
-            </button>
-            <button onClick={() => triggerUpload('.mp4,.avi,.mov')} className="flex items-center space-x-1 px-3 py-2 bg-purple-100 text-purple-700 rounded-lg text-sm">
-              <Video className="w-4 h-4" />
-              <span>Видео</span>
-            </button>
-          </div>
-        </div>
+      {/* Header */}
+      <div className="text-center space-y-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+          Материалдар
+        </h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Тараулар мен тақырыптар бойынша ұйымдастырылған барлық химия оқу материалдарыңызға қол жеткізіңіз. Оқу тәжірибеңізді жақсарту үшін ресурстарды жүктеп алыңыз және жүктеңіз.
+        </p>
       </div>
-      {/* Rest of your materials code (search, filters, list, etc.) remains unchanged */}
-    </div>
-  );
-};
 
       {/* Compact Upload Section */}
       <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300">
@@ -388,7 +403,8 @@ const Materials: React.FC = () => {
           })}
         </div>
       </div>
-z  );
+    </div>
+  );
 };
 
 export default Materials;
