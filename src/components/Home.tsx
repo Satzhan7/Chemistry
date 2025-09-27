@@ -6,7 +6,6 @@ const Home: React.FC = () => {
     { icon: Users, label: 'Оқытылған студенттер', value: '200+' },
     { icon: BookOpen, label: 'Жасалған сабақтар', value: '50+' },
     { icon: Award, label: 'Жылдық тәжірибе', value: '5' },
-    { icon: TrendingUp, label: 'Табыс көрсеткіші', value: '95%' },
   ];
 
   const features = [
@@ -61,10 +60,10 @@ const Home: React.FC = () => {
 
         <div className="space-y-4">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">Хош келдіңіздер!</span>
+            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">Қош келдіңіздер!</span>
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">
-            Нұрзипа Төребекқызының химия платформасына
+            Интербелсенді оқыту платформасына
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Бұл сайт химия пәнінен білім алуға арналған. Есімім Төребек Нұрзипа Бақытбекқызы. 
@@ -87,7 +86,7 @@ const Home: React.FC = () => {
               </div>
               <div>
                 <p className="mb-4">
-                  Менде химия білімі бойынша магистр дәрежесі бар және жетілдірілген оқыту әдістері бойынша сертификатым бар. Сыныпта болмаған кезде мен ғылыми тәжірибелер жүргізуді, соңғы жаңалықтар туралы оқуды және оқытуды қызықты ету жолдарын дамытуды ұнатамын.
+                  Менде химия білімі бойынша магистр дәрежесі бар және жетілдірілген оқыту әдістері бойынша тәжірибем бар. Уақыттарымды ғылыми тәжірибелер жүргізуге, соңғы жаңалықтар туралы оқуға және оқытуды қызықты ету жолдарына қолдануды ұнатамын.
                 </p>
                 <p>
                   Менің мақсатым - келесі ұрпақ ғалымдарын шабыттандыру және барлық студенттерге химия бойынша академиялық мақсаттарына жетуге көмектесу.
@@ -143,7 +142,7 @@ const Home: React.FC = () => {
       <section className="bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 text-white text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-4">Оқуды бастауға дайынсыз ба?</h2>
         <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-          Біздің толық химия ресурстарымызды зерттеп, осы қызықты пәнді меңгеру жолыңызды бастаңыз.
+          Біздің химия пәні бойынша ресурстарымызды зерттеп, осы қызықты пәнді меңгеру жолыңызды бастаңыз.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
