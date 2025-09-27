@@ -3,15 +3,13 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 import Materials from './components/Materials';
 import TestsQuizzes from './components/TestsQuizzes';
-import GamesPractice from './components/GamesPractice';
-import TipsTricks from './components/TipsTricks';
 import Contact from './components/Contact';
 
-type Section = 'home' | 'materials' | 'tests' | 'games' | 'tips' | 'contact';
+type Section = 'home' | 'materials' | 'tests' | 'contact';
 
 interface TestHistory {
   id: string;
-  quizTitle: string;
+  testTitle: string;
   score: number;
   totalQuestions: number;
   date: string;
@@ -30,19 +28,15 @@ function App() {
   const renderSection = () => {
     switch (currentSection) {
       case 'home':
-        return <Home />;
+        return <Home onNavigate={setCurrentSection} />;
       case 'materials':
         return <Materials />;
       case 'tests':
         return <TestsQuizzes testHistory={testHistory} onTestComplete={addTestResult} />;
-      case 'games':
-        return <GamesPractice />;
-      case 'tips':
-        return <TipsTricks />;
       case 'contact':
         return <Contact />;
       default:
-        return <Home />;
+        return <Home onNavigate={setCurrentSection} />;
     }
   };
 
