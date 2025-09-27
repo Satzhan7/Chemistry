@@ -43,32 +43,14 @@ const Contact: React.FC = () => {
       link: 'tel:+77774948702'
     },
     {
-      icon: MapPin,
-      label: 'Сынып бөлмесі',
-      value: '204 бөлме, Ғылым ғимараты',
-      link: null
-    },
-    {
       icon: Clock,
-      label: 'Кеңсе сағаттары',
-      value: 'Дүй-Жұм: 15:00-16:00',
+      label: 'Байланыста',
+      value: 'Дүй-Жұм: 10:00-18:00',
       link: null
     }
   ];
 
   const socialLinks = [
-    {
-      name: 'Мектеп веб-сайты',
-      url: 'https://school.edu',
-      icon: ExternalLink,
-      color: 'bg-blue-600 hover:bg-blue-700'
-    },
-    {
-      name: 'Ғылым бөлімі',
-      url: 'https://school.edu/science',
-      icon: ExternalLink,
-      color: 'bg-green-600 hover:bg-green-700'
-    },
     {
       name: 'WhatsApp',
       url: 'https://wa.me/77774948702',
@@ -147,7 +129,7 @@ const Contact: React.FC = () => {
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
                 <span>Дүйсенбі - Жұма</span>
-                <span>15:00 - 16:00</span>
+                <span>10:00 - 18:00</span>
               </div>
               <div className="flex justify-between">
                 <span>Келісім бойынша</span>
