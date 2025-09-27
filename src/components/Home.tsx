@@ -1,11 +1,11 @@
 import React from 'react';
-import { Award, BookOpen, Users, TrendingUp, Beaker, Atom } from 'lucide-react';
+import { Award, BookOpen, Users, Beaker } from 'lucide-react';
 
 const Home: React.FC = () => {
   const stats = [
     { icon: Users, label: 'Оқытылған студенттер', value: '200+' },
     { icon: BookOpen, label: 'Жасалған сабақтар', value: '50+' },
-    { icon: Award, label: 'Жылдық тәжірибе', value: '5' },
+    { icon: Award, label: 'Жылдық тәжірибе', value: '2' },
   ];
 
   const features = [
@@ -13,26 +13,20 @@ const Home: React.FC = () => {
       title: 'Интерактивті оқыту',
       description: 'Практикалық жұмыстар, симуляциялар және нақты өмірдегі қолданулар арқылы химиямен танысыңыз.',
       icon: Beaker,
-      color: 'bg-blue-100 text-blue-700'
+      color: 'bg-blue-100 text-blue-700',
     },
     {
       title: 'Толық материалдар',
       description: 'Химияның әрбір тақырыбы бойынша ұйымдастырылған оқу материалдары, жазбалар және ресурстарға қол жеткізіңіз.',
       icon: BookOpen,
-      color: 'bg-green-100 text-green-700'
+      color: 'bg-green-100 text-green-700',
     },
     {
       title: 'Жаттығу тесттері',
       description: 'Сауалнамалар мен жаттығу емтихандары арқылы білімдеріңізді тексеріп, лезде кері байланыс алыңыз.',
       icon: Award,
-      color: 'bg-purple-100 text-purple-700'
+      color: 'bg-purple-100 text-purple-700',
     },
-    {
-      title: 'Қызықты оқу ойындары',
-      description: 'Тартымды ойындар мен интерактивті сын-тегеуріндер арқылы химия ұғымдарын меңгеріңіз.',
-      icon: Atom,
-      color: 'bg-orange-100 text-orange-700'
-    }
   ];
 
   return (
@@ -45,12 +39,21 @@ const Home: React.FC = () => {
             <div className="text-6xl font-bold text-white z-10">Н</div>
             {/* Atomic orbital animations */}
             <div className="absolute inset-0">
-              <div className="absolute top-1/2 left-1/2 w-32 h-32 border-2 border-white/30 rounded-full animate-spin" style={{ transform: 'translate(-50%, -50%)', animationDuration: '8s' }}></div>
-              <div className="absolute top-1/2 left-1/2 w-24 h-24 border-2 border-white/40 rounded-full animate-spin" style={{ transform: 'translate(-50%, -50%) rotate(60deg)', animationDuration: '6s', animationDirection: 'reverse' }}></div>
-              <div className="absolute top-1/2 left-1/2 w-16 h-16 border-2 border-white/50 rounded-full animate-spin" style={{ transform: 'translate(-50%, -50%) rotate(120deg)', animationDuration: '4s' }}></div>
+              <div
+                className="absolute top-1/2 left-1/2 w-32 h-32 border-2 border-white/30 rounded-full animate-spin"
+                style={{ transform: 'translate(-50%, -50%)', animationDuration: '8s' }}
+              ></div>
+              <div
+                className="absolute top-1/2 left-1/2 w-24 h-24 border-2 border-white/40 rounded-full animate-spin"
+                style={{ transform: 'translate(-50%, -50%) rotate(60deg)', animationDuration: '6s', animationDirection: 'reverse' }}
+              ></div>
+              <div
+                className="absolute top-1/2 left-1/2 w-16 h-16 border-2 border-white/50 rounded-full animate-spin"
+                style={{ transform: 'translate(-50%, -50%) rotate(120deg)', animationDuration: '4s' }}
+              ></div>
             </div>
           </div>
-          
+
           {/* Floating Electrons */}
           <div className="absolute top-0 left-1/4 w-4 h-4 bg-yellow-400 rounded-full animate-pulse shadow-lg"></div>
           <div className="absolute top-8 right-1/4 w-3 h-3 bg-blue-400 rounded-full animate-pulse delay-300 shadow-lg"></div>
@@ -60,14 +63,16 @@ const Home: React.FC = () => {
 
         <div className="space-y-4">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">Қош келдіңіздер!</span>
+            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">
+              Қош келдіңіздер!
+            </span>
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">
             Интербелсенді оқыту платформасына
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Бұл сайт химия пәнінен білім алуға арналған. Есімім Төребек Нұрзипа Бақытбекқызы. 
-            Химия пәні мұғалімімін және әрбір студент үшін химияны қолжетімді және қызықты ету менің құштарлығым.
+            Бұл сайт химия пәнінен білім алуға арналған. Есімім Төребек Нұрзипа Бақытбекқызы. Химия пәні мұғалімімін және әрбір студент үшін химияны
+            қолжетімді және қызықты ету менің құштарлығым.
           </p>
         </div>
 
@@ -78,19 +83,20 @@ const Home: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-6 text-gray-700 leading-relaxed">
               <div>
                 <p className="mb-4">
-                  Мен өз мансабымды студенттерге химияның таңғажайып әлемін ашуға көмектесуге арнадым. Менің тәсілім дәстүрлі оқыту әдістерін заманауи, интерактивті техникалармен біріктіріп, күрделі ұғымдарды түсінуге оңай етеді.
+                  Мен өз мансабымды студенттерге химияның таңғажайып әлемін ашуға көмектесуге арнадым. Менің тәсілім дәстүрлі оқыту әдістерін заманауи,
+                  интерактивті техникалармен біріктіріп, күрделі ұғымдарды түсінуге оңай етеді.
                 </p>
                 <p>
-                  Мен әрбір студент дұрыс құралдар, қолдау және жігерлендіру берілгенде химияда жетістікке жете алады деп сенемін. Бұл веб-сайт химияның барлық мәселелері бойынша сіздің бір терезелі ресурсыңыз болуға арналған.
+                  Мен әрбір студент дұрыс құралдар, қолдау және жігерлендіру берілгенде химияда жетістікке жете алады деп сенемін. Бұл веб-сайт химияның
+                  барлық мәселелері бойынша сіздің бір терезелі ресурсыңыз болуға арналған.
                 </p>
               </div>
               <div>
                 <p className="mb-4">
-                  Менде химия білімі бойынша магистр дәрежесі бар және жетілдірілген оқыту әдістері бойынша тәжірибем бар. Уақыттарымды ғылыми тәжірибелер жүргізуге, соңғы жаңалықтар туралы оқуға және оқытуды қызықты ету жолдарына қолдануды ұнатамын.
+                  Менде химия білімі бойынша магистр дәрежесі бар және жетілдірілген оқыту әдістері бойынша тәжірибем бар. Уақыттарымды ғылыми тәжірибелер
+                  жүргізуге, соңғы жаңалықтар туралы оқуға және оқытуды қызықты ету жолдарына қолдануды ұнатамын.
                 </p>
-                <p>
-                  Менің мақсатым - келесі ұрпақ ғалымдарын шабыттандыру және барлық студенттерге химия бойынша академиялық мақсаттарына жетуге көмектесу.
-                </p>
+                <p>Менің мақсатым - келесі ұрпақ ғалымдарын шабыттандыру және барлық студенттерге химия бойынша академиялық мақсаттарына жетуге көмектесу.</p>
               </div>
             </div>
           </div>
@@ -98,11 +104,17 @@ const Home: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section
+        className="grid gap-6 justify-center"
+        style={{ gridTemplateColumns: `repeat(${stats.length}, minmax(0, 1fr))` }}
+      >
         {stats.map((stat, index) => {
           const Icon = stat.icon;
           return (
-            <div key={index} className="bg-white/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div
+              key={index}
+              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
               <div className="bg-gradient-to-r from-blue-600 to-green-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Icon className="w-6 h-6 text-white" />
               </div>
@@ -122,11 +134,17 @@ const Home: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          className="grid gap-6 justify-center"
+          style={{ gridTemplateColumns: `repeat(${features.length}, minmax(0, 1fr))` }}
+        >
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div
+                key={index}
+                className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
                 <div className={`w-12 h-12 rounded-lg ${feature.color} flex items-center justify-center mb-4`}>
                   <Icon className="w-6 h-6" />
                 </div>
