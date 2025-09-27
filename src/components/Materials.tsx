@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, FileText, Image, Video, Download, Search, Filter, Eye, Trash2, Calendar, FileIcon } from 'lucide-react';
+import { Upload, FileText, Image, Video, Download, Search, Filter, Eye, Trash2, Calendar, FileIcon, Plus } from 'lucide-react';
 
 interface Material {
   id: number;
@@ -166,24 +166,20 @@ const Materials: React.FC = () => {
       {/* Header */}
       <div className="text-center space-y-4">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Оқу материалдары
+          Материалдар
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Тараулар мен тақырыптар бойынша ұйымдастырылған барлық химия оқу материалдарыңызға қол жеткізіңіз. Оқу тәжірибеңізді жақсарту үшін ресурстарды жүктеп алыңыз және жүктеңіз.
         </p>
       </div>
 
-      {/* Upload Section */}
-      <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Жаңа материал жүктеу</h2>
-        <div className="grid md:grid-cols-2 gap-4">
+      {/* Compact Upload Section */}
+      <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div className="flex flex-col sm:flex-row gap-4 items-center">
           {/* Upload Area */}
-          <label className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-purple-400 hover:bg-purple-50/50 transition-all cursor-pointer block">
-            <Upload className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-            <p className="text-gray-600 mb-2 text-sm">Файлдарды сүйреп апарыңыз</p>
-            <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 inline-block text-sm">
-              Файл таңдау
-            </div>
+          <label className="flex-1 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-purple-400 hover:bg-purple-50/50 transition-all cursor-pointer">
+            <Upload className="w-6 h-6 text-gray-400 mx-auto mb-2" />
+            <p className="text-gray-600 text-sm mb-2">Файлдарды сүйреп апарыңыз немесе таңдаңыз</p>
             <input
               type="file"
               multiple
@@ -194,27 +190,19 @@ const Materials: React.FC = () => {
           </label>
           
           {/* Quick Actions */}
-          <div className="space-y-3">
-            <h3 className="font-semibold text-gray-900 text-sm">Жылдам әрекеттер</h3>
-            <div className="grid grid-cols-2 gap-2">
-              <button className="flex items-center space-x-2 px-3 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors text-sm">
-                <FileText className="w-4 h-4" />
-                <span>PDF жүктеу</span>
-              </button>
-              <button className="flex items-center space-x-2 px-3 py-2 bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors text-sm">
-                <Image className="w-4 h-4" />
-                <span>Сурет жүктеу</span>
-              </button>
-              <button className="flex items-center space-x-2 px-3 py-2 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors text-sm">
-                <Video className="w-4 h-4" />
-                <span>Видео жүктеу</span>
-              </button>
-              <button className="flex items-center space-x-2 px-3 py-2 bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 transition-colors text-sm">
-                <FileIcon className="w-4 h-4" />
-                <span>Документ</span>
-              </button>
-            </div>
-            <p className="text-xs text-gray-500">Максимум файл өлшемі: 50MB</p>
+          <div className="flex flex-wrap gap-2">
+            <button className="flex items-center space-x-1 px-3 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors text-sm">
+              <FileText className="w-4 h-4" />
+              <span>PDF</span>
+            </button>
+            <button className="flex items-center space-x-1 px-3 py-2 bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors text-sm">
+              <Image className="w-4 h-4" />
+              <span>Сурет</span>
+            </button>
+            <button className="flex items-center space-x-1 px-3 py-2 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors text-sm">
+              <Video className="w-4 h-4" />
+              <span>Видео</span>
+            </button>
           </div>
         </div>
       </div>
@@ -315,7 +303,7 @@ const Materials: React.FC = () => {
             <div key={material.id} className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               {viewMode === 'grid' ? (
                 <div className="space-y-3">
-                  <div className={`p-2 rounded-lg ${getTypeColor(material.type)} flex items-center justify-center`}>
+                  <div className={`p-3 rounded-lg ${getTypeColor(material.type)} flex items-center justify-center`}>
                     {getTypeIcon(material.type)}
                   </div>
                   <div>
@@ -332,17 +320,17 @@ const Materials: React.FC = () => {
                     </div>
                   </div>
                   <div className="flex space-x-1">
-                    <button className="flex-1 flex items-center justify-center space-x-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-2 py-1.5 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 text-xs">
+                    <button className="flex-1 flex items-center justify-center space-x-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-2 py-2 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 text-xs">
                       <Eye className="w-3 h-3" />
                       <span>Көру</span>
                     </button>
-                    <button className="flex-1 flex items-center justify-center space-x-1 bg-gradient-to-r from-green-500 to-green-600 text-white px-2 py-1.5 rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 text-xs">
+                    <button className="flex-1 flex items-center justify-center space-x-1 bg-gradient-to-r from-green-500 to-green-600 text-white px-2 py-2 rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 text-xs">
                       <Download className="w-3 h-3" />
                       <span>Жүктеу</span>
                     </button>
                     <button 
                       onClick={() => deleteMaterial(material.id)}
-                      className="p-1.5 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-200"
+                      className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-200"
                     >
                       <Trash2 className="w-3 h-3" />
                     </button>
@@ -367,17 +355,17 @@ const Materials: React.FC = () => {
                     </div>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <button className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 text-xs">
+                    <button className="flex items-center space-x-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-2 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 text-xs">
                       <Eye className="w-4 h-4" />
                       <span>Көру</span>
                     </button>
-                    <button className="flex items-center space-x-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1.5 rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 transform hover:scale-105 text-xs">
+                    <button className="flex items-center space-x-1 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-2 rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 transform hover:scale-105 text-xs">
                       <Download className="w-4 h-4" />
                       <span>Жүктеп алу</span>
                     </button>
                     <button 
                       onClick={() => deleteMaterial(material.id)}
-                      className="p-1.5 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-200 transform hover:scale-105"
+                      className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-200 transform hover:scale-105"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -413,31 +401,6 @@ const Materials: React.FC = () => {
               </div>
             );
           })}
-        </div>
-        
-        {/* UST.KZ Integration Section */}
-        <div className="bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 rounded-xl p-6 text-white">
-          <h3 className="text-xl font-bold mb-4">UST.KZ Ресурстары</h3>
-          <p className="text-purple-100 mb-4">Университет ресурстарына тікелей қол жеткізіңіз</p>
-          <div className="grid md:grid-cols-3 gap-4">
-            <a 
-              href="https://ust.kz/assistant" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-white/20 backdrop-blur-sm rounded-lg p-4 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-            >
-              <h4 className="font-semibold mb-2">AI Көмекшісі</h4>
-              <p className="text-sm text-purple-100">Жасанды интеллект арқылы көмек алыңыз</p>
-            </a>
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-              <h4 className="font-semibold mb-2">Оқу материалдары</h4>
-              <p className="text-sm text-purple-100">Университеттің ресми материалдары</p>
-            </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-              <h4 className="font-semibold mb-2">Онлайн кітапхана</h4>
-              <p className="text-sm text-purple-100">Цифрлық кітаптар мен журналдар</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ type Section = 'home' | 'materials' | 'tests' | 'contact';
 
 interface TestHistory {
   id: string;
-  testTitle: string;
+  quizTitle: string;
   score: number;
   totalQuestions: number;
   date: string;
@@ -28,7 +28,7 @@ function App() {
   const renderSection = () => {
     switch (currentSection) {
       case 'home':
-        return <Home onNavigate={setCurrentSection} />;
+        return <Home />;
       case 'materials':
         return <Materials />;
       case 'tests':
@@ -36,7 +36,7 @@ function App() {
       case 'contact':
         return <Contact />;
       default:
-        return <Home onNavigate={setCurrentSection} />;
+        return <Home />;
     }
   };
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle, ExternalLink, MessageCircle } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -20,11 +20,9 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
     console.log('Form submitted:', formData);
     setIsSubmitted(true);
     
-    // Reset form after submission
     setTimeout(() => {
       setFormData({ name: '', email: '', subject: '', message: '' });
       setIsSubmitted(false);
@@ -35,14 +33,14 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       label: 'Электрондық пошта',
-      value: 'sarah.johnson@school.edu',
-      link: 'mailto:sarah.johnson@school.edu'
+      value: 'nurzipa.chemistry@school.edu',
+      link: 'mailto:nurzipa.chemistry@school.edu'
     },
     {
       icon: Phone,
       label: 'Телефон',
-      value: '+77774948702',
-      link: 'https://wa.link/i7ypra'
+      value: '+7 777 494 8702',
+      link: 'tel:+77774948702'
     },
     {
       icon: MapPin,
@@ -72,10 +70,10 @@ const Contact: React.FC = () => {
       color: 'bg-green-600 hover:bg-green-700'
     },
     {
-      name: 'Студент порталы',
-      url: 'https://portal.school.edu',
-      icon: ExternalLink,
-      color: 'bg-purple-600 hover:bg-purple-700'
+      name: 'WhatsApp',
+      url: 'https://wa.me/77774948702',
+      icon: MessageCircle,
+      color: 'bg-green-500 hover:bg-green-600'
     }
   ];
 
@@ -86,7 +84,6 @@ const Contact: React.FC = () => {
           <div className="bg-green-600 w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center">
             <CheckCircle className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-green-900 mb-4">Message Sent Successfully!</h1>
           <h1 className="text-3xl font-bold text-green-900 mb-4">Хабарлама сәтті жіберілді!</h1>
           <p className="text-lg text-green-700 mb-6">
             Хабарласқаныңыз үшін рахмет. Мен сізге мүмкіндігінше тезірек, әдетте 24 сағат ішінде жауап беремін.
@@ -104,7 +101,7 @@ const Contact: React.FC = () => {
       {/* Header */}
       <div className="text-center space-y-4">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Байланысыңыз
+          Байланыс
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Химия ұғымдары туралы сұрақтарыңыз бар ма, үй тапсырмасына көмек керек пе, немесе прогрессіңізді талқылағыңыз келе ме? Мен көмектесуге дайынмын!
@@ -176,7 +173,7 @@ const Contact: React.FC = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-white transition-colors ${link.color}`}
+                    className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-white transition-all duration-300 transform hover:scale-105 ${link.color}`}
                   >
                     <Icon className="w-5 h-5" />
                     <span>{link.name}</span>
@@ -271,7 +268,7 @@ const Contact: React.FC = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-green-600 text-white px-8 py-4 rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl"
+                className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-green-600 text-white px-8 py-4 rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <Send className="w-5 h-5" />
                 <span>Хабарлама жіберу</span>

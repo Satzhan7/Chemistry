@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Clock, Award, CheckCircle, XCircle, RotateCcw, History, TrendingUp, Target } from 'lucide-react';
+import { Clock, Award, CheckCircle, XCircle, RotateCcw, History, TrendingUp, Target, Play } from 'lucide-react';
 
 interface Question {
   id: number;
@@ -17,7 +17,7 @@ interface Quiz {
   chapter: string;
   duration: number;
   questions: Question[];
-  difficulty: 'Easy' | 'Medium' | 'Hard';
+  difficulty: 'Оңай' | 'Орташа' | 'Қиын';
 }
 
 interface TestHistory {
@@ -313,6 +313,7 @@ const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete
       </div>
     );
   }
+
   if (selectedQuiz && !showResults) {
     const currentQuestion = selectedQuiz.questions[currentQuestionIndex];
     const progress = ((currentQuestionIndex + 1) / selectedQuiz.questions.length) * 100;
@@ -500,7 +501,7 @@ const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete
       {/* Header */}
       <div className="text-center space-y-4">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Тесттер мен сауалнамалар
+          Тесттер мен Викториналар
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Интерактивті сауалнамалар мен жаттығу емтихандары арқылы білімдеріңізді тексеріңіз. Лезде кері байланыс алыңыз және прогрессіңізді қадағалаңыз.
@@ -543,9 +544,10 @@ const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete
             
             <button
               onClick={() => startQuiz(quiz)}
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 font-medium"
+              className="w-full flex items-center justify-center space-x-2 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 font-medium"
             >
-              Сауалнаманы бастау
+              <Play className="w-5 h-5" />
+              <span>Сауалнаманы бастау</span>
             </button>
           </div>
         ))}
