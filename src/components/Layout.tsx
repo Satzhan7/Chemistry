@@ -180,7 +180,6 @@ const Layout: React.FC<LayoutProps> = ({ children, currentSection, onSectionChan
                 </div>
                 <h3 className="text-xl font-bold">Нұрзипа Химия Платформасы</h3>
               </div>
-              <p className="text-gray-400 mb-4">Барлық студенттер үшін химияны қолжетімді және қызықты ету</p>
               <p className="text-sm text-gray-500">© 2025 Химия орталығы. Барлық құқықтар қорғалған.</p>
             </div>
           </div>
