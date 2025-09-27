@@ -27,12 +27,6 @@ const Home: React.FC = () => {
       icon: Award,
       color: 'bg-purple-100 text-purple-700'
     },
-    {
-      title: 'Қызықты оқу ойындары',
-      description: 'Тартымды ойындар мен интерактивті сын-тегеуріндер арқылы химия ұғымдарын меңгеріңіз.',
-      icon: Atom,
-      color: 'bg-orange-100 text-orange-700'
-    }
   ];
 
   return (
