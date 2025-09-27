@@ -6,6 +6,22 @@ const Home: React.FC = () => {
     { icon: Users, label: 'Оқытылған студенттер', value: '200+' },
     { icon: BookOpen, label: 'Жасалған сабақтар', value: '50+' },
     { icon: Award, label: 'Жылдық тәжірибе', value: '2' },
+    <section className="grid gap-6 justify-center"
+         style={{ gridTemplateColumns: `repeat(${stats.length}, minmax(0, 1fr))` }}>
+  {stats.map((stat, index) => {
+    const Icon = stat.icon;
+    return (
+      <div key={index} className="bg-white/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div className="bg-gradient-to-r from-blue-600 to-green-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+          <Icon className="w-6 h-6 text-white" />
+        </div>
+        <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
+        <div className="text-sm text-gray-600">{stat.label}</div>
+      </div>
+    );
+  })}
+</section>
+
   ];
 
   const features = [
@@ -27,6 +43,22 @@ const Home: React.FC = () => {
       icon: Award,
       color: 'bg-purple-100 text-purple-700'
     },
+    <div className="grid gap-6 justify-center"
+     style={{ gridTemplateColumns: `repeat(${features.length}, minmax(0, 1fr))` }}>
+  {features.map((feature, index) => {
+    const Icon = feature.icon;
+    return (
+      <div key={index} className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div className={`w-12 h-12 rounded-lg ${feature.color} flex items-center justify-center mb-4`}>
+          <Icon className="w-6 h-6" />
+        </div>
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
+        <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+      </div>
+    );
+  })}
+</div>
+
   ];
 
   return (
