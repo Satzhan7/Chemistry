@@ -5,7 +5,7 @@ const Home: React.FC = () => {
   const stats = [
     { icon: Users, label: 'Оқытылған студенттер', value: '200+' },
     { icon: BookOpen, label: 'Жасалған сабақтар', value: '50+' },
-    { icon: Award, label: 'Жылдық тәжірибе', value: '5' },
+    { icon: Award, label: 'Жылдық тәжірибе', value: '2' },
   ];
 
   const features = [
