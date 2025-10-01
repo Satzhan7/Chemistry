@@ -8,24 +8,14 @@ import Contact from './components/Contact';
 
 type Section = 'home' | 'materials' | 'videos' | 'tests' | 'contact';
 
-interface TestHistory {
-  id: string;
-  quizTitle: string;
-  score: number;
-  totalQuestions: number;
-  date: string;
-  answers: (string | number)[];
-  questions: any[];
-}
-
 function App() {
   const [currentSection, setCurrentSection] = useState<Section>('home');
-  const [testHistory, setTestHistory] = useState<TestHistory[]>([]);
-  const [materials, setMaterials] = useState<any[]>([]);
+  const [materials, setMaterials] = useState<any[]>([]); // ✅ works fine
   const [videos, setVideos] = useState<any[]>([]);
+  const [testHistory, setTestHistory] = useState<any[]>([]);
 
-  const addTestResult = (result: TestHistory) => {
-    setTestHistory(prev => [result, ...prev.slice(0, 9)]); // Keep last 10 results
+  const addTestResult = (result: any) => {
+    setTestHistory(prev => [result, ...prev.slice(0, 9)]);
   };
 
   const renderSection = () => {
