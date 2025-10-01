@@ -3,9 +3,10 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 import Materials from './components/Materials';
 import TestsQuizzes from './components/TestsQuizzes';
+import Videos from './components/Videos';
 import Contact from './components/Contact';
 
-type Section = 'home' | 'materials' | 'tests' | 'contact';
+type Section = 'home' | 'materials' | 'videos' | 'tests' | 'contact';
 
 interface TestHistory {
   id: string;
@@ -20,6 +21,8 @@ interface TestHistory {
 function App() {
   const [currentSection, setCurrentSection] = useState<Section>('home');
   const [testHistory, setTestHistory] = useState<TestHistory[]>([]);
+  const [materials, setMaterials] = useState<any[]>([]);
+  const [videos, setVideos] = useState<any[]>([]);
 
   const addTestResult = (result: TestHistory) => {
     setTestHistory(prev => [result, ...prev.slice(0, 9)]); // Keep last 10 results
@@ -28,9 +31,11 @@ function App() {
   const renderSection = () => {
     switch (currentSection) {
       case 'home':
-        return <Home />;
+        return <Home onSectionChange={setCurrentSection} />;
       case 'materials':
-        return <Materials />;
+        return <Materials materials={materials} setMaterials={setMaterials} />;
+      case 'videos':
+        return <Videos videos={videos} setVideos={setVideos} />;
       case 'tests':
         return <TestsQuizzes testHistory={testHistory} onTestComplete={addTestResult} />;
       case 'contact':

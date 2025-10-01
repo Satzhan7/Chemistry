@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Atom, BookOpen, FileText, Mail, Menu, X } from 'lucide-react';
+import { Atom, BookOpen, FileText, Mail, Menu, X, Video } from 'lucide-react';
 
-type Section = 'home' | 'materials' | 'tests' | 'contact';
+type Section = 'home' | 'materials' | 'videos' | 'tests' | 'contact';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -15,6 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children, currentSection, onSectionChan
   const navItems = [
     { key: 'home' as Section, label: 'Басты бет', icon: Atom },
     { key: 'materials' as Section, label: 'Материалдар', icon: BookOpen },
+    { key: 'videos' as Section, label: 'Видеолар', icon: Video },
     { key: 'tests' as Section, label: 'Тесттер мен Викториналар', icon: FileText },
     { key: 'contact' as Section, label: 'Байланыс', icon: Mail },
   ];

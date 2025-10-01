@@ -10,64 +10,19 @@ interface Material {
   uploadDate: string;
   size?: string;
   url?: string;
+  isEditing?: boolean;
 }
 
-const Materials: React.FC = () => {
+interface MaterialsProps {
+  materials: Material[];
+  setMaterials: React.Dispatch<React.SetStateAction<Material[]>>;
+}
+
+const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedChapter, setSelectedChapter] = useState('all');
   const [selectedType, setSelectedType] = useState('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [materials, setMaterials] = useState<Material[]>([
-    {
-      id: 1,
-      title: 'Химияға кіріспе жазбалары',
-      type: 'pdf',
-      chapter: '1-тарау: Негізгі ұғымдар',
-      description: 'Химияның негізгі ұғымдары мен терминологиясын қамтитын толық жазбалар.',
-      uploadDate: '2025-01-15',
-      size: '2.3 MB',
-      url: '#'
-    },
-    {
-      id: 2,
-      title: 'Атом құрылысы презентациясы',
-      type: 'ppt',
-      chapter: '2-тарау: Атом құрылысы',
-      description: 'Атом құрылысы мен электрон конфигурациясын түсіндіретін көрнекі презентация.',
-      uploadDate: '2025-01-14',
-      size: '5.1 MB',
-      url: '#'
-    },
-    {
-      id: 3,
-      title: 'Химиялық байланыс зертханасы видеосы',
-      type: 'video',
-      chapter: '3-тарау: Химиялық байланыс',
-      description: 'Иондық және коваленттік байланыстың зертханалық көрсетілімі.',
-      uploadDate: '2025-01-13',
-      url: '#'
-    },
-    {
-      id: 4,
-      title: 'Периодтық кесте анықтамалығы',
-      type: 'image',
-      chapter: '2-тарау: Атом құрылысы',
-      description: 'Электрон конфигурациялары бар жоғары ажыратымдылықтағы периодтық кесте.',
-      uploadDate: '2025-01-12',
-      size: '1.8 MB',
-      url: '#'
-    },
-    {
-      id: 5,
-      title: 'Реакция механизмдері жұмыс парағы',
-      type: 'doc',
-      chapter: '4-тарау: Химиялық реакциялар',
-      description: 'Реакция механизмдерін түсіну үшін жаттығу есептері.',
-      uploadDate: '2025-01-11',
-      size: '0.8 MB',
-      url: '#'
-    }
-  ]);
 
   const chapters = [
     '1-тарау: Негізгі ұғымдар',
@@ -95,6 +50,18 @@ const Materials: React.FC = () => {
         setMaterials(prev => [newMaterial, ...prev]);
       });
     }
+  };
+
+  const editMaterial = (id: number) => {
+    setMaterials(prev => prev.map(material => 
+      material.id === id ? { ...material, isEditing: true } : material
+    ));
+  };
+
+  const saveMaterial = (id: number, updatedMaterial: Partial<Material>) => {
+    setMaterials(prev => prev.map(material => 
+      material.id === id ? { ...material, ...updatedMaterial, isEditing: false } : material
+    ));
   };
 
   const getFileType = (filename: string): 'pdf' | 'doc' | 'ppt' | 'image' | 'video' => {
@@ -175,35 +142,19 @@ const Materials: React.FC = () => {
 
       {/* Compact Upload Section */}
       <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300">
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
-          {/* Upload Area */}
-          <label className="flex-1 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-purple-400 hover:bg-purple-50/50 transition-all cursor-pointer">
-            <Upload className="w-6 h-6 text-gray-400 mx-auto mb-2" />
-            <p className="text-gray-600 text-sm mb-2">Файлдарды сүйреп апарыңыз немесе таңдаңыз</p>
+        <div className="text-center">
+          <label className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-300 transform hover:scale-105 cursor-pointer shadow-lg">
+            <Upload className="w-5 h-5" />
+            <span>Файл жүктеу</span>
             <input
               type="file"
               multiple
               onChange={handleFileUpload}
               className="hidden"
-              accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.gif,.mp4,.avi,.mov"
+              accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.gif,.mp4,.avi,.mov,.txt,.xlsx,.xls"
             />
           </label>
-          
-          {/* Quick Actions */}
-          <div className="flex flex-wrap gap-2">
-            <button className="flex items-center space-x-1 px-3 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors text-sm">
-              <FileText className="w-4 h-4" />
-              <span>PDF</span>
-            </button>
-            <button className="flex items-center space-x-1 px-3 py-2 bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors text-sm">
-              <Image className="w-4 h-4" />
-              <span>Сурет</span>
-            </button>
-            <button className="flex items-center space-x-1 px-3 py-2 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors text-sm">
-              <Video className="w-4 h-4" />
-              <span>Видео</span>
-            </button>
-          </div>
+          <p className="text-gray-600 text-sm mt-2">PDF, Word, PowerPoint, суреттер және басқа файлдарды қолдау көрсетіледі</p>
         </div>
       </div>
 
@@ -334,6 +285,12 @@ const Materials: React.FC = () => {
                     >
                       <Trash2 className="w-3 h-3" />
                     </button>
+                    <button 
+                      onClick={() => editMaterial(material.id)}
+                      className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-200"
+                    >
+                      <Edit className="w-3 h-3" />
+                    </button>
                   </div>
                 </div>
               ) : (
@@ -369,7 +326,25 @@ const Materials: React.FC = () => {
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
+                    <button 
+                      onClick={() => editMaterial(material.id)}
+                      className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-200 transform hover:scale-105"
+                    >
+                      <Edit className="w-4 h-4" />
+                    </button>
                   </div>
+                </div>
+              )}
+              
+              {/* Edit Form */}
+              {material.isEditing && (
+                <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                  <MaterialEditForm 
+                    material={material}
+                    chapters={chapters}
+                    onSave={(updatedMaterial) => saveMaterial(material.id, updatedMaterial)}
+                    onCancel={() => setMaterials(prev => prev.map(m => m.id === material.id ? { ...m, isEditing: false } : m))}
+                  />
                 </div>
               )}
             </div>
@@ -402,6 +377,75 @@ const Materials: React.FC = () => {
             );
           })}
         </div>
+      </div>
+    </div>
+  );
+};
+
+interface MaterialEditFormProps {
+  material: Material;
+  chapters: string[];
+  onSave: (updatedMaterial: Partial<Material>) => void;
+  onCancel: () => void;
+}
+
+const MaterialEditForm: React.FC<MaterialEditFormProps> = ({ material, chapters, onSave, onCancel }) => {
+  const [editData, setEditData] = useState({
+    title: material.title,
+    description: material.description,
+    chapter: material.chapter
+  });
+
+  const handleSave = () => {
+    onSave(editData);
+  };
+
+  return (
+    <div className="space-y-3">
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">Атауы</label>
+        <input
+          type="text"
+          value={editData.title}
+          onChange={(e) => setEditData(prev => ({ ...prev, title: e.target.value }))}
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">Сипаттама</label>
+        <textarea
+          value={editData.description}
+          onChange={(e) => setEditData(prev => ({ ...prev, description: e.target.value }))}
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+          rows={2}
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">Тарау</label>
+        <select
+          value={editData.chapter}
+          onChange={(e) => setEditData(prev => ({ ...prev, chapter: e.target.value }))}
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+        >
+          {chapters.map(chapter => (
+            <option key={chapter} value={chapter}>{chapter}</option>
+          ))}
+        </select>
+      </div>
+      <div className="flex justify-end space-x-2">
+        <button
+          onClick={onCancel}
+          className="px-3 py-1 text-gray-600 hover:text-gray-800 transition-colors text-sm"
+        >
+          Бас тарту
+        </button>
+        <button
+          onClick={handleSave}
+          className="flex items-center space-x-1 px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700 transition-colors"
+        >
+          <Save className="w-3 h-3" />
+          <span>Сақтау</span>
+        </button>
       </div>
     </div>
   );
