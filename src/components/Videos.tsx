@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Video, Plus, Edit, Save, Trash2, ExternalLink, Youtube, Play } from 'lucide-react';
+import { Video, Plus, CreditCard as Edit, Save, Trash2, ExternalLink, Youtube, Play } from 'lucide-react';
 
 interface VideoItem {
   id: number;

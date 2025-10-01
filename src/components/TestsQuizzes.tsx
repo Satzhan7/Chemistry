@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Clock, Award, CheckCircle, XCircle, RotateCcw, History, TrendingUp, Target, Play, Plus, Edit, Save, Trash2, FileText, Link, Upload } from 'lucide-react';
+import { Clock, Award, CheckCircle, XCircle, RotateCcw, History, TrendingUp, Target, Play, Plus, CreditCard as Edit, Save, Trash2, FileText, Link, Upload } from 'lucide-react';
 
 interface Question {
   id: number;
