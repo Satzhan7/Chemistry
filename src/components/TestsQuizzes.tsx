@@ -157,13 +157,6 @@ const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete
   const [showAddTest, setShowAddTest] = useState(false);
   const [newTest, setNewTest] = useState({
     title: '',
-    description: '',
-    type: 'handwritten' as 'handwritten' | 'link',
-    content: '',
-    url: '',
-    chapter: '1-тарау: Негізгі ұғымдар'
-  });
-
   const quizzes: Quiz[] = [
     {
       id: 1,
