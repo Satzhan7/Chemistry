@@ -72,7 +72,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           id: 5,
           title: '№5-лекция. Аммиак синтезі',
           type: 'pdf',
-          chapter: '3-тарау: Химиялық байланыс',
+          chapter: '4-тарау: Химиялық реакциялар',
           description: 'Реакция түрлері мен олардың сипаттамалары',
           uploadDate: '2025-09-14',
           size: '9.9 MB',
