@@ -176,7 +176,7 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
             <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse" style={{ animationDelay: '0.5s' }}>
               <Beaker className="w-8 h-8 text-orange-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Видео дәрістер</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Бейне сабақтар</h3>
             <p className="text-gray-600 text-sm">Көрнекі түсіндірмелер мен зертханалық жұмыстар</p>
           </div>
         </div>
