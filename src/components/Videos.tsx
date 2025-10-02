@@ -58,7 +58,7 @@ const Videos: React.FC<VideosProps> = ({ videos, setVideos }) => {
           title: 'Формула құрастыру',
           url: 'https://youtu.be/YoxEU_Yk1TU?si=3bu5P5-Ou--1b-1c',
           description: 'ҰБТ Химия',
-          chapter: '5-тарау: Қышқылдар мен негіздер',
+          chapter: '3-тарау: Химиялық байланыс',
           uploadDate: '2025-09-14'
         },
         {
