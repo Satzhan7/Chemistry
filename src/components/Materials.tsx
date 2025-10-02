@@ -70,14 +70,14 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
         },
         {
           id: 5,
-          title: 'Химиялық реакциялар жіктелуі',
+          title: '№5-лекция. Аммиак синтезі',
           type: 'pdf',
           chapter: '4-тарау: Химиялық реакциялар',
           description: 'Реакция түрлері мен олардың сипаттамалары',
           uploadDate: '2025-09-14',
-          size: '2.1 MB',
+          size: '9.9 MB',
           url: '#',
-          link: 'https://example.com/chemical-reactions-classification'
+          link: 'https://drive.google.com/file/d/19lJ4HOmsSjnfe8ItYRvlaGnJh_wYQxvr/view?usp=sharing'
         },
         {
           id: 6,
