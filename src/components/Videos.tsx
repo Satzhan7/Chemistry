@@ -64,8 +64,8 @@ const Videos: React.FC<VideosProps> = ({ videos, setVideos }) => {
         {
           id: 6,
           title: 'Органикалық химияға кіріспе',
-          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-          description: 'Органикалық қосылыстардың негізгі класстары мен олардың қасиеттері.',
+          url: 'https://www.youtube.com/live/cfkIic4WGko?si=Po7FKV07TqWn8N_u',
+          description: 'ҰБТ Химия',
           chapter: '6-тарау: Органикалық химия',
           uploadDate: '2025-09-14'
         },
