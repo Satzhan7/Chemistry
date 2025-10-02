@@ -10,6 +10,7 @@ interface Material {
   uploadDate: string;
   size?: string;
   url?: string;
+  link?: string;
   isEditing?: boolean;
 }
 
@@ -31,7 +32,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Химияның іргелі принциптері мен негізгі ұғымдары туралы толық нұсқаулық',
           uploadDate: '2024-01-15',
           size: '2.5 MB',
-          url: '#'
+          url: '#',
+          link: 'https://example.com/basic-chemistry-concepts'
         },
         {
           id: 2,
@@ -41,7 +43,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Атом құрылысы мен электрон конфигурациясы туралы интерактивті презентация',
           uploadDate: '2024-01-20',
           size: '4.1 MB',
-          url: '#'
+          url: '#',
+          link: 'https://example.com/atomic-structure-presentation'
         },
         {
           id: 3,
@@ -51,7 +54,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Ионды, коваленттік және металдық байланыстар туралы толық ақпарат',
           uploadDate: '2024-01-25',
           size: '1.8 MB',
-          url: '#'
+          url: '#',
+          link: 'https://example.com/chemical-bonding-guide'
         },
         {
           id: 4,
@@ -61,7 +65,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Жоғары ажыратымдылықтағы периодтық кесте суреті',
           uploadDate: '2024-02-01',
           size: '3.2 MB',
-          url: '#'
+          url: '#',
+          link: 'https://ptable.com'
         },
         {
           id: 5,
@@ -71,7 +76,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Реакция түрлері мен олардың сипаттамалары',
           uploadDate: '2024-02-05',
           size: '2.1 MB',
-          url: '#'
+          url: '#',
+          link: 'https://example.com/chemical-reactions-classification'
         },
         {
           id: 6,
@@ -81,7 +87,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Химия зертханасында қауіпсіздік ережелері мен нұсқаулықтар',
           uploadDate: '2024-02-10',
           size: '1.5 MB',
-          url: '#'
+          url: '#',
+          link: 'https://example.com/lab-safety-guide'
         },
         {
           id: 7,
@@ -91,7 +98,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Органикалық қосылыстардың негізгі класстары мен қасиеттері',
           uploadDate: '2024-02-15',
           size: '5.3 MB',
-          url: '#'
+          url: '#',
+          link: 'https://example.com/organic-chemistry-intro'
         },
         {
           id: 8,
@@ -101,7 +109,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Аррениус, Бренстед-Лоури және Льюис теорияларының салыстырмалы талдауы',
           uploadDate: '2024-02-20',
           size: '2.8 MB',
-          url: '#'
+          url: '#',
+          link: 'https://example.com/acids-bases-theory'
         },
         // Text/Link type materials
         {
@@ -113,7 +122,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           uploadDate: '2024-02-25',
           size: '0.8 MB',
           url: 'https://example.com/formulas',
-          isLink: true
+          isLink: true,
+          link: 'https://example.com/formulas'
         },
         {
           id: 10,
@@ -123,7 +133,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Онлайн интерактивті периодтық кесте - элементтер туралы толық ақпарат',
           uploadDate: '2024-03-01',
           url: 'https://ptable.com',
-          isLink: true
+          isLink: true,
+          link: 'https://ptable.com'
         },
         {
           id: 11,
@@ -133,7 +144,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Молярлық масса, концентрация және стехиометрия есептеулері үшін онлайн құрал',
           uploadDate: '2024-03-05',
           url: 'https://example.com/calculator',
-          isLink: true
+          isLink: true,
+          link: 'https://example.com/calculator'
         },
         {
           id: 12,
@@ -143,7 +155,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Химиялық терминдер мен анықтамалардың толық сөздігі',
           uploadDate: '2024-03-10',
           url: 'https://example.com/dictionary',
-          isLink: true
+          isLink: true,
+          link: 'https://example.com/dictionary'
         },
         {
           id: 13,
@@ -153,7 +166,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Практикалық жұмыстар мен эксперименттер жүргізу бойынша нұсқаулықтар',
           uploadDate: '2024-03-15',
           url: 'https://example.com/lab-guide',
-          isLink: true
+          isLink: true,
+          link: 'https://example.com/lab-guide'
         },
         {
           id: 14,
@@ -163,7 +177,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'YouTube арнасындағы химия дәрістерінің толық жинағы',
           uploadDate: '2024-03-20',
           url: 'https://youtube.com/chemistry-lectures',
-          isLink: true
+          isLink: true,
+          link: 'https://youtube.com/chemistry-lectures'
         },
         {
           id: 15,
@@ -173,7 +188,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'Виртуалды зертханада химиялық реакцияларды модельдеу',
           uploadDate: '2024-03-25',
           url: 'https://example.com/simulator',
-          isLink: true
+          isLink: true,
+          link: 'https://example.com/simulator'
         },
         {
           id: 16,
@@ -183,7 +199,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           description: 'ҰБТ және басқа емтихандарға дайындалу үшін материалдар жинағы',
           uploadDate: '2024-03-30',
           url: 'https://example.com/exam-prep',
-          isLink: true
+          isLink: true,
+          link: 'https://example.com/exam-prep'
         }
       ];
       setMaterials(sampleMaterials);
@@ -194,6 +211,13 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
   const [selectedChapter, setSelectedChapter] = useState('all');
   const [selectedType, setSelectedType] = useState('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [showAddLink, setShowAddLink] = useState(false);
+  const [newLink, setNewLink] = useState({
+    title: '',
+    description: '',
+    url: '',
+    chapter: '1-тарау: Негізгі ұғымдар'
+  });
 
   const chapters = [
     '1-тарау: Негізгі ұғымдар',
@@ -220,6 +244,24 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
         };
         setMaterials(prev => [newMaterial, ...prev]);
       });
+    }
+  };
+
+  const addLink = () => {
+    if (newLink.title && newLink.url) {
+      const linkMaterial: Material = {
+        id: Date.now(),
+        title: newLink.title,
+        type: 'doc',
+        chapter: newLink.chapter,
+        description: newLink.description,
+        uploadDate: new Date().toISOString().split('T')[0],
+        url: newLink.url,
+        link: newLink.url
+      };
+      setMaterials(prev => [linkMaterial, ...prev]);
+      setNewLink({ title: '', description: '', url: '', chapter: '1-тарау: Негізгі ұғымдар' });
+      setShowAddLink(false);
     }
   };
 
@@ -327,7 +369,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
               />
             </label>
             <button
-              onClick={() => {/* Add link functionality */}}
+              onClick={() => setShowAddLink(true)}
               className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               <Link className="w-5 h-5" />
@@ -337,6 +379,71 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           <p className="text-gray-600 text-sm mt-3">PDF, Word, PowerPoint, суреттер және сілтемелерді қолдау көрсетіледі</p>
         </div>
       </div>
+
+      {/* Add Link Form */}
+      {showAddLink && (
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Жаңа сілтеме қосу</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Атауы</label>
+              <input
+                type="text"
+                value={newLink.title}
+                onChange={(e) => setNewLink(prev => ({ ...prev, title: e.target.value }))}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Сілтеме атауын енгізіңіз"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Тарау</label>
+              <select
+                value={newLink.chapter}
+                onChange={(e) => setNewLink(prev => ({ ...prev, chapter: e.target.value }))}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                {chapters.map(chapter => (
+                  <option key={chapter} value={chapter}>{chapter}</option>
+                ))}
+              </select>
+            </div>
+            <div className="md:col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Сілтеме URL</label>
+              <input
+                type="url"
+                value={newLink.url}
+                onChange={(e) => setNewLink(prev => ({ ...prev, url: e.target.value }))}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="https://example.com"
+              />
+            </div>
+            <div className="md:col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Сипаттама</label>
+              <textarea
+                value={newLink.description}
+                onChange={(e) => setNewLink(prev => ({ ...prev, description: e.target.value }))}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                rows={3}
+                placeholder="Сілтеме туралы қысқаша сипаттама"
+              />
+            </div>
+          </div>
+          <div className="flex justify-end space-x-3 mt-4">
+            <button
+              onClick={() => setShowAddLink(false)}
+              className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
+            >
+              Бас тарту
+            </button>
+            <button
+              onClick={addLink}
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Сақтау
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Search and Filters */}
       <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300">
@@ -444,6 +551,14 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
                     <p className="text-gray-600 text-xs mb-3 line-clamp-2">{material.description}</p>
                     <div className="space-y-2 text-xs text-gray-500">
                       <div className="bg-gray-100 px-2 py-1 rounded text-center text-xs">{material.chapter}</div>
+                      {material.link && (
+                        <div className="text-blue-600 text-xs">
+                          <Link className="w-3 h-3 inline mr-1" />
+                          <a href={material.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                            Сілтеме
+                          </a>
+                        </div>
+                      )}
                       <div className="flex justify-between">
                         <span><Calendar className="w-3 h-3 inline mr-1" />{material.uploadDate}</span>
                         {material.size && <span>{material.size}</span>}
@@ -486,6 +601,12 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
                       <p className="text-gray-600 mb-2 text-xs">{material.description}</p>
                       <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
                         <span className="bg-gray-100 px-2 py-1 rounded text-xs">{material.chapter}</span>
+                        {material.link && (
+                          <a href={material.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-xs flex items-center">
+                            <Link className="w-3 h-3 mr-1" />
+                            Сілтеме
+                          </a>
+                        )}
                         <span><Calendar className="w-3 h-3 inline mr-1" />Жүктелген: {material.uploadDate}</span>
                         {material.size && <span>Өлшемі: {material.size}</span>}
                       </div>
@@ -573,7 +694,8 @@ const MaterialEditForm: React.FC<MaterialEditFormProps> = ({ material, chapters,
   const [editData, setEditData] = useState({
     title: material.title,
     description: material.description,
-    chapter: material.chapter
+    chapter: material.chapter,
+    link: material.link || ''
   });
 
   const handleSave = () => {
@@ -598,6 +720,16 @@ const MaterialEditForm: React.FC<MaterialEditFormProps> = ({ material, chapters,
           onChange={(e) => setEditData(prev => ({ ...prev, description: e.target.value }))}
           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
           rows={2}
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">Сілтеме (міндетті емес)</label>
+        <input
+          type="url"
+          value={editData.link}
+          onChange={(e) => setEditData(prev => ({ ...prev, link: e.target.value }))}
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+          placeholder="https://example.com"
         />
       </div>
       <div>
