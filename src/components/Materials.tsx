@@ -37,14 +37,14 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
         },
         {
           id: 2,
-          title: 'Атом құрылысы презентациясы',
+          title: '№2-лекция. Шикізат, энергия, су',
           type: 'ppt',
           chapter: '2-тарау: Атом құрылысы',
           description: 'Атом құрылысы мен электрон конфигурациясы туралы интерактивті презентация',
-          uploadDate: '2024-01-20',
-          size: '4.1 MB',
+          uploadDate: '2025-09-14',
+          size: '46 MB',
           url: '#',
-          link: 'https://example.com/atomic-structure-presentation'
+          link: 'https://drive.google.com/file/d/1Czb0k2yeYgAdY1F65-J7_rg4aH0XGAEW/view?usp=drive_link'
         },
         {
           id: 3,
