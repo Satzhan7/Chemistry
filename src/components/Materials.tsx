@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, FileText, Image, Video, Download, Search, Filter, Eye, Trash2, Calendar, File as FileIcon, Plus, Link, Edit, Save } from 'lucide-react';
+import { Upload, FileText, Image, Video, Download, Search, Filter, Eye, Trash2, Calendar, File as FileIcon, Plus, Link, CreditCard as Edit, Save } from 'lucide-react';
 
 interface Material {
   id: number;
