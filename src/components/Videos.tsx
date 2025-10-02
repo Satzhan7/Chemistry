@@ -79,10 +79,10 @@ const Videos: React.FC<VideosProps> = ({ videos, setVideos }) => {
         },
         {
           id: 8,
-          title: 'Периодтық кесте және элементтердің қасиеттері',
-          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-          description: 'Периодтық кестенің құрылысы және элементтердің периодтық қасиеттері.',
-          chapter: '1-тарау: Негізгі ұғымдар',
+          title: 'Тұздан қалайы алу',
+          url: 'https://youtu.be/aiIWkYG0ChU?si=ua_azFYCYsc7LM15',
+          description: 'ҰБТ Химия',
+          chapter: '4-тарау: Химиялық реакциялар',
           uploadDate: '2025-09-14'
         }
       ];
