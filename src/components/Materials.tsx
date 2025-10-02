@@ -53,9 +53,9 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           chapter: '3-тарау: Химиялық байланыс',
           description: 'Ионды, коваленттік және металдық байланыстар туралы толық ақпарат',
           uploadDate: '2025-09-14',
-          size: '11.4 MB',
+          size: '1.5 MB',
           url: '#',
-          link: 'https://drive.google.com/file/d/1vj8-kneo_Kseqw1BUkJHmkv2KcJUISkp/view?usp=drive_link'
+          link: 'https://drive.google.com/file/d/1qcvMqOp37eo8LcP69b2zKeJ2_IR4T-dx/view?usp=drive_link'
         },
         {
           id: 4,
