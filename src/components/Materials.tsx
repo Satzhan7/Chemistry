@@ -103,14 +103,14 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
         },
         {
           id: 8,
-          title: 'Қышқылдар мен негіздер теориясы',
+          title: '№8-лекция. Металлургия Шойын және Болат',
           type: 'pdf',
           chapter: '5-тарау: Қышқылдар мен негіздер',
           description: 'Аррениус, Бренстед-Лоури және Льюис теорияларының салыстырмалы талдауы',
           uploadDate: '2025-09-14',
           size: '1.4 MB',
           url: '#',
-          link: 'https://example.com/acids-bases-theory'
+          link: 'https://drive.google.com/file/d/1n-seV6phCrVnC0-vy5xJvf5rNvkyE5jv/view?usp=sharing'
         },
         // Text/Link type materials
         {
