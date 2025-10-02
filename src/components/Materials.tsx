@@ -26,14 +26,14 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
       const sampleMaterials: Material[] = [
         {
           id: 1,
-          title: 'Химияның негізгі ұғымдары',
+          title: '№1-лекция. Химиялық технология',
           type: 'pdf',
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'Химияның іргелі принциптері мен негізгі ұғымдары туралы толық нұсқаулық',
-          uploadDate: '2024-01-15',
-          size: '2.5 MB',
+          uploadDate: '2025-09-14',
+          size: '143.5 MB',
           url: '#',
-          link: 'https://example.com/basic-chemistry-concepts'
+          link: 'https://drive.google.com/file/d/143ZQ7D0z8k0ryjS0dAsj8tYfbQIYN7k0/view?usp=drive_link'
         },
         {
           id: 2,
