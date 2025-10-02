@@ -120,9 +120,9 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
       {/* Features Section */}
       <section className="space-y-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Мұнда не табасыз</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Мұнда не табасыз?</h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Химияда табысқа жету үшін қажет барлық нәрсе: толық оқу материалдарынан интерактивті ойындар мен жаттығу тесттеріне дейін.
+            Химияда табысқа жету үшін қажет барлық нәрсе: толық оқу материалдарынан және түрлі пайдалы бейнематериалдар мен жаттығу тесттеріне дейін.
           </p>
         </div>
 
