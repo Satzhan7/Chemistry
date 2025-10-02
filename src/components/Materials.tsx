@@ -42,9 +42,9 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           chapter: '2-тарау: Атом құрылысы',
           description: 'Атом құрылысы мен электрон конфигурациясы туралы интерактивті презентация',
           uploadDate: '2025-09-14',
-          size: '46 MB',
+          size: '3.3 MB',
           url: '#',
-          link: 'https://drive.google.com/file/d/1Czb0k2yeYgAdY1F65-J7_rg4aH0XGAEW/view?usp=drive_link'
+          link: 'https://drive.google.com/file/d/1P5OXgARGpdmF2yXnPb6N31jhWREfvAx5/view?usp=drive_link'
         },
         {
           id: 3,
