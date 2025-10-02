@@ -48,6 +48,105 @@ interface TestsQuizzesProps {
 }
 
 const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete }) => {
+  // Initialize with sample custom tests if empty
+  React.useEffect(() => {
+    if (customTests.length === 0) {
+      const sampleTests: CustomTest[] = [
+        {
+          id: 1,
+          title: 'Химияның негізгі ұғымдары бойынша тест',
+          description: 'Атомдар, молекулалар, химиялық элементтер туралы негізгі сұрақтар',
+          type: 'handwritten',
+          content: '1. Алтынның химиялық белгісі қандай?\n2. Көміртек атомында неше протон бар?\n3. Заттың үш негізгі күйін атаңыз.',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          uploadDate: '2024-01-15'
+        },
+        {
+          id: 2,
+          title: 'Атом құрылысы - Google Forms тесті',
+          description: 'Электрон конфигурациясы мен атом құрылысы бойынша интерактивті тест',
+          type: 'link',
+          url: 'https://forms.google.com/atomic-structure-test',
+          chapter: '2-тарау: Атом құрылысы',
+          uploadDate: '2024-01-20'
+        },
+        {
+          id: 3,
+          title: 'Химиялық байланыс түрлері',
+          description: 'Ионды, коваленттік және металдық байланыстар туралы тест',
+          type: 'handwritten',
+          content: '1. Ионды байланыс қалай түзіледі?\n2. Коваленттік байланыстың ерекшеліктері\n3. Металдық байланыстың қасиеттері',
+          chapter: '3-тарау: Химиялық байланыс',
+          uploadDate: '2024-01-25'
+        },
+        {
+          id: 4,
+          title: 'Химиялық реакциялар - Онлайн викторина',
+          description: 'Реакция түрлері мен теңдеулерді теңестіру бойынша тест',
+          type: 'link',
+          url: 'https://kahoot.it/chemical-reactions-quiz',
+          chapter: '4-тарау: Химиялық реакциялар',
+          uploadDate: '2024-02-01'
+        },
+        {
+          id: 5,
+          title: 'Қышқылдар мен негіздер тесті',
+          description: 'pH, қышқылдық-негіздік қасиеттер туралы жазбаша тест',
+          type: 'handwritten',
+          content: '1. pH шкаласы қандай мәндерді қамтиды?\n2. Күшті қышқылдарға мысал келтіріңіз\n3. Нейтралдау реакциясының теңдеуін жазыңыз',
+          chapter: '5-тарау: Қышқылдар мен негіздер',
+          uploadDate: '2024-02-05'
+        },
+        {
+          id: 6,
+          title: 'Органикалық химия - Quizizz тесті',
+          description: 'Органикалық қосылыстардың класстары мен қасиеттері',
+          type: 'link',
+          url: 'https://quizizz.com/organic-chemistry-basics',
+          chapter: '6-тарау: Органикалық химия',
+          uploadDate: '2024-02-10'
+        },
+        {
+          id: 7,
+          title: 'Периодтық кесте бойынша тест',
+          description: 'Элементтердің орналасуы мен қасиеттері туралы сұрақтар',
+          type: 'handwritten',
+          content: '1. Периодтық кестедегі топтар мен периодтар дегеніміз не?\n2. Металдар мен металл емес заттардың орналасуы\n3. Асыл газдардың ерекшеліктері',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          uploadDate: '2024-02-15'
+        },
+        {
+          id: 8,
+          title: 'Зертханалық қауіпсіздік - Google Forms',
+          description: 'Зертханада жұмыс істеу ережелері мен қауіпсіздік шаралары',
+          type: 'link',
+          url: 'https://forms.google.com/lab-safety-test',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          uploadDate: '2024-02-20'
+        },
+        {
+          id: 9,
+          title: 'Химиялық есептеулер тесті',
+          description: 'Молярлық масса, концентрация және стехиометрия есептеулері',
+          type: 'handwritten',
+          content: '1. 2 моль NaCl-дің массасын есептеңіз\n2. 0.5 М ерітіндінің концентрациясын табыңыз\n3. CaCO3 → CaO + CO2 реакциясын теңестіріңіз',
+          chapter: '4-тарау: Химиялық реакциялар',
+          uploadDate: '2024-02-25'
+        },
+        {
+          id: 10,
+          title: 'Жалпы химия - Аралас емтихан',
+          description: 'Барлық тақырыптар бойынша кешенді тест (Mentimeter)',
+          type: 'link',
+          url: 'https://mentimeter.com/general-chemistry-exam',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          uploadDate: '2024-03-01'
+        }
+      ];
+      setCustomTests(sampleTests);
+    }
+  }, [customTests.length]);
+
   const [selectedQuiz, setSelectedQuiz] = useState<Quiz | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<(string | number)[]>([]);

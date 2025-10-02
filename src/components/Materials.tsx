@@ -19,6 +19,177 @@ interface MaterialsProps {
 }
 
 const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
+  // Initialize with sample materials if empty
+  React.useEffect(() => {
+    if (materials.length === 0) {
+      const sampleMaterials: Material[] = [
+        {
+          id: 1,
+          title: 'Химияның негізгі ұғымдары',
+          type: 'pdf',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          description: 'Химияның іргелі принциптері мен негізгі ұғымдары туралы толық нұсқаулық',
+          uploadDate: '2024-01-15',
+          size: '2.5 MB',
+          url: '#'
+        },
+        {
+          id: 2,
+          title: 'Атом құрылысы презентациясы',
+          type: 'ppt',
+          chapter: '2-тарау: Атом құрылысы',
+          description: 'Атом құрылысы мен электрон конфигурациясы туралы интерактивті презентация',
+          uploadDate: '2024-01-20',
+          size: '4.1 MB',
+          url: '#'
+        },
+        {
+          id: 3,
+          title: 'Химиялық байланыс түрлері',
+          type: 'doc',
+          chapter: '3-тарау: Химиялық байланыс',
+          description: 'Ионды, коваленттік және металдық байланыстар туралы толық ақпарат',
+          uploadDate: '2024-01-25',
+          size: '1.8 MB',
+          url: '#'
+        },
+        {
+          id: 4,
+          title: 'Периодтық кесте диаграммасы',
+          type: 'image',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          description: 'Жоғары ажыратымдылықтағы периодтық кесте суреті',
+          uploadDate: '2024-02-01',
+          size: '3.2 MB',
+          url: '#'
+        },
+        {
+          id: 5,
+          title: 'Химиялық реакциялар жіктелуі',
+          type: 'pdf',
+          chapter: '4-тарау: Химиялық реакциялар',
+          description: 'Реакция түрлері мен олардың сипаттамалары',
+          uploadDate: '2024-02-05',
+          size: '2.1 MB',
+          url: '#'
+        },
+        {
+          id: 6,
+          title: 'Зертхана қауіпсіздігі нұсқаулығы',
+          type: 'doc',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          description: 'Химия зертханасында қауіпсіздік ережелері мен нұсқаулықтар',
+          uploadDate: '2024-02-10',
+          size: '1.5 MB',
+          url: '#'
+        },
+        {
+          id: 7,
+          title: 'Органикалық химия кіріспе',
+          type: 'ppt',
+          chapter: '6-тарау: Органикалық химия',
+          description: 'Органикалық қосылыстардың негізгі класстары мен қасиеттері',
+          uploadDate: '2024-02-15',
+          size: '5.3 MB',
+          url: '#'
+        },
+        {
+          id: 8,
+          title: 'Қышқылдар мен негіздер теориясы',
+          type: 'pdf',
+          chapter: '5-тарау: Қышқылдар мен негіздер',
+          description: 'Аррениус, Бренстед-Лоури және Льюис теорияларының салыстырмалы талдауы',
+          uploadDate: '2024-02-20',
+          size: '2.8 MB',
+          url: '#'
+        },
+        // Text/Link type materials
+        {
+          id: 9,
+          title: 'Химия формулалар жинағы',
+          type: 'doc',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          description: 'Барлық маңызды химиялық формулалар мен теңдеулердің толық тізімі',
+          uploadDate: '2024-02-25',
+          size: '0.8 MB',
+          url: 'https://example.com/formulas',
+          isLink: true
+        },
+        {
+          id: 10,
+          title: 'Интерактивті периодтық кесте',
+          type: 'doc',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          description: 'Онлайн интерактивті периодтық кесте - элементтер туралы толық ақпарат',
+          uploadDate: '2024-03-01',
+          url: 'https://ptable.com',
+          isLink: true
+        },
+        {
+          id: 11,
+          title: 'Химиялық есептеулер калькуляторы',
+          type: 'doc',
+          chapter: '4-тарау: Химиялық реакциялар',
+          description: 'Молярлық масса, концентрация және стехиометрия есептеулері үшін онлайн құрал',
+          uploadDate: '2024-03-05',
+          url: 'https://example.com/calculator',
+          isLink: true
+        },
+        {
+          id: 12,
+          title: 'Химия терминдер сөздігі',
+          type: 'doc',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          description: 'Химиялық терминдер мен анықтамалардың толық сөздігі',
+          uploadDate: '2024-03-10',
+          url: 'https://example.com/dictionary',
+          isLink: true
+        },
+        {
+          id: 13,
+          title: 'Зертханалық жұмыстар нұсқаулығы',
+          type: 'doc',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          description: 'Практикалық жұмыстар мен эксперименттер жүргізу бойынша нұсқаулықтар',
+          uploadDate: '2024-03-15',
+          url: 'https://example.com/lab-guide',
+          isLink: true
+        },
+        {
+          id: 14,
+          title: 'Химия бойынша видео дәрістер',
+          type: 'doc',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          description: 'YouTube арнасындағы химия дәрістерінің толық жинағы',
+          uploadDate: '2024-03-20',
+          url: 'https://youtube.com/chemistry-lectures',
+          isLink: true
+        },
+        {
+          id: 15,
+          title: 'Химиялық реакциялар симуляторы',
+          type: 'doc',
+          chapter: '4-тарау: Химиялық реакциялар',
+          description: 'Виртуалды зертханада химиялық реакцияларды модельдеу',
+          uploadDate: '2024-03-25',
+          url: 'https://example.com/simulator',
+          isLink: true
+        },
+        {
+          id: 16,
+          title: 'Химия емтихандарына дайындық',
+          type: 'doc',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          description: 'ҰБТ және басқа емтихандарға дайындалу үшін материалдар жинағы',
+          uploadDate: '2024-03-30',
+          url: 'https://example.com/exam-prep',
+          isLink: true
+        }
+      ];
+      setMaterials(sampleMaterials);
+    }
+  }, [materials.length, setMaterials]);
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedChapter, setSelectedChapter] = useState('all');
   const [selectedType, setSelectedType] = useState('all');
@@ -141,20 +312,29 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
       </div>
 
       {/* Compact Upload Section */}
-      <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300">
+      <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
         <div className="text-center">
-          <label className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-300 transform hover:scale-105 cursor-pointer shadow-lg">
-            <Upload className="w-5 h-5" />
-            <span>Файл жүктеу</span>
-            <input
-              type="file"
-              multiple
-              onChange={handleFileUpload}
-              className="hidden"
-              accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.gif,.mp4,.avi,.mov,.txt,.xlsx,.xls"
-            />
-          </label>
-          <p className="text-gray-600 text-sm mt-2">PDF, Word, PowerPoint, суреттер және басқа файлдарды қолдау көрсетіледі</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <label className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-300 transform hover:scale-105 cursor-pointer shadow-lg">
+              <Upload className="w-5 h-5" />
+              <span>Файл жүктеу</span>
+              <input
+                type="file"
+                multiple
+                onChange={handleFileUpload}
+                className="hidden"
+                accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.gif,.mp4,.avi,.mov,.txt,.xlsx,.xls"
+              />
+            </label>
+            <button
+              onClick={() => {/* Add link functionality */}}
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              <Link className="w-5 h-5" />
+              <span>Сілтеме қосу</span>
+            </button>
+          </div>
+          <p className="text-gray-600 text-sm mt-3">PDF, Word, PowerPoint, суреттер және сілтемелерді қолдау көрсетіледі</p>
         </div>
       </div>
 

@@ -30,12 +30,6 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
       description: 'Сауалнамалар мен жаттығу емтихандары арқылы білімдеріңізді тексеріп, лезде кері байланыс алыңыз.',
       icon: Award,
       color: 'bg-purple-100 text-purple-700'
-    },
-    {
-      title: 'Қызықты оқу ойындары',
-      description: 'Тартымды ойындар мен интерактивті сын-тегеуріндер арқылы химия ұғымдарын меңгеріңіз.',
-      icon: Atom,
-      color: 'bg-orange-100 text-orange-700'
     }
   ];
 
@@ -102,11 +96,12 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
       </section>
 
       {/* Stats Section */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section className="flex justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
         {stats.map((stat, index) => {
           const Icon = stat.icon;
           return (
-            <div key={index} className="bg-white/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div key={index} className="bg-white/80 backdrop-blur-sm rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 transform hover:scale-105">
               <div className="bg-gradient-to-r from-blue-600 to-green-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Icon className="w-6 h-6 text-white" />
               </div>
@@ -115,6 +110,7 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
             </div>
           );
         })}
+        </div>
       </section>
 
       {/* Features Section */}
@@ -126,11 +122,11 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 transform hover:scale-105">
                 <div className={`w-12 h-12 rounded-lg ${feature.color} flex items-center justify-center mb-4`}>
                   <Icon className="w-6 h-6" />
                 </div>
@@ -153,7 +149,7 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
-            <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
               <BookOpen className="w-8 h-8 text-blue-600" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Толық материалдар</h3>
@@ -161,7 +157,7 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
-            <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
               <Award className="w-8 h-8 text-green-600" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Интерактивті тесттер</h3>
@@ -169,7 +165,7 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
-            <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 animate-spin" style={{ animationDuration: '3s' }}>
               <TrendingUp className="w-8 h-8 text-purple-600" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Прогресс қадағалау</h3>
@@ -177,7 +173,7 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
-            <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse" style={{ animationDelay: '0.5s' }}>
               <Beaker className="w-8 h-8 text-orange-600" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Видео дәрістер</h3>
@@ -185,6 +181,13 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
           </div>
         </div>
       </section>
+
+      {/* Animated orbital rings for the selected element */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/2 left-1/2 w-32 h-32 border-2 border-white/30 rounded-full animate-spin" style={{ transform: 'translate(-50%, -50%)', animationDuration: '8s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-24 h-24 border-2 border-white/40 rounded-full animate-spin" style={{ transform: 'translate(-50%, -50%) rotate(60deg)', animationDuration: '6s', animationDirection: 'reverse' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-16 h-16 border-2 border-white/50 rounded-full animate-spin" style={{ transform: 'translate(-50%, -50%) rotate(120deg)', animationDuration: '4s' }}></div>
+      </div>
 
       {/* Call to Action */}
       <section className="bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 text-white text-center">

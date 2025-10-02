@@ -17,6 +17,79 @@ interface VideosProps {
 }
 
 const Videos: React.FC<VideosProps> = ({ videos, setVideos }) => {
+  // Initialize with sample videos if empty
+  React.useEffect(() => {
+    if (videos.length === 0) {
+      const sampleVideos: VideoItem[] = [
+        {
+          id: 1,
+          title: 'Химияның негізгі ұғымдары - Кіріспе',
+          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          description: 'Химия пәніне кіріспе дәрісі. Негізгі ұғымдар мен принциптерді үйренеміз.',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          uploadDate: '2024-01-15'
+        },
+        {
+          id: 2,
+          title: 'Атом құрылысы және электрон конфигурациясы',
+          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          description: 'Атомның құрылысы, протондар, нейтрондар, электрондар туралы толық ақпарат.',
+          chapter: '2-тарау: Атом құрылысы',
+          uploadDate: '2024-01-20'
+        },
+        {
+          id: 3,
+          title: 'Химиялық байланыс түрлері',
+          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          description: 'Ионды, коваленттік және металдық байланыстардың қалыптасуы мен қасиеттері.',
+          chapter: '3-тарау: Химиялық байланыс',
+          uploadDate: '2024-01-25'
+        },
+        {
+          id: 4,
+          title: 'Химиялық реакциялар және теңдеулер',
+          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          description: 'Химиялық реакциялардың түрлері мен теңдеулерді теңестіру әдістері.',
+          chapter: '4-тарау: Химиялық реакциялар',
+          uploadDate: '2024-02-01'
+        },
+        {
+          id: 5,
+          title: 'Қышқылдар мен негіздер - Теория және практика',
+          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          description: 'Қышқылдар мен негіздердің қасиеттері, pH шкаласы және нейтралдау реакциялары.',
+          chapter: '5-тарау: Қышқылдар мен негіздер',
+          uploadDate: '2024-02-05'
+        },
+        {
+          id: 6,
+          title: 'Органикалық химияға кіріспе',
+          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          description: 'Органикалық қосылыстардың негізгі класстары мен олардың қасиеттері.',
+          chapter: '6-тарау: Органикалық химия',
+          uploadDate: '2024-02-10'
+        },
+        {
+          id: 7,
+          title: 'Зертханалық жұмыстар - Қауіпсіздік ережелері',
+          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          description: 'Химия зертханасында жұмыс істеу кезіндегі қауіпсіздік ережелері мен нұсқаулықтар.',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          uploadDate: '2024-02-15'
+        },
+        {
+          id: 8,
+          title: 'Периодтық кесте және элементтердің қасиеттері',
+          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          description: 'Периодтық кестенің құрылысы және элементтердің периодтық қасиеттері.',
+          chapter: '1-тарау: Негізгі ұғымдар',
+          uploadDate: '2024-02-20'
+        }
+      ];
+      setVideos(sampleVideos);
+    }
+  }, [videos.length, setVideos]);
+
   const [showAddForm, setShowAddForm] = useState(false);
   const [newVideo, setNewVideo] = useState({
     title: '',
