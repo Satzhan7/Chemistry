@@ -92,14 +92,14 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
         },
         {
           id: 7,
-          title: 'Органикалық химия кіріспе',
+          title: '№7-лекция. Фосфор өндірісі',
           type: 'pdf',
           chapter: '6-тарау: Органикалық химия',
           description: 'Органикалық қосылыстардың негізгі класстары мен қасиеттері',
           uploadDate: '2025-09-14',
           size: '1.1 MB',
           url: '#',
-          link: 'https://example.com/organic-chemistry-intro'
+          link: 'https://drive.google.com/file/d/1T1BJVIoQTEgzmhXQHCLSJqo7hwzXI7_w/view?usp=drive_link'
         },
         {
           id: 8,
