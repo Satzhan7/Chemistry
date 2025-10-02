@@ -47,10 +47,10 @@ const Videos: React.FC<VideosProps> = ({ videos, setVideos }) => {
         },
         {
           id: 4,
-          title: 'Химиялық реакциялар және теңдеулер',
-          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-          description: 'Химиялық реакциялардың түрлері мен теңдеулерді теңестіру әдістері.',
-          chapter: '4-тарау: Химиялық реакциялар',
+          title: 'Менделеев кестесін үйреніп ал!',
+          url: 'https://youtu.be/gqkt7-Bm0hc?si=h_1w1cmvgUCAivzw',
+          description: 'Кесте жайлы',
+          chapter: '1-тарау: Негізгі ұғымдар',
           uploadDate: '2025-09-14'
         },
         {
