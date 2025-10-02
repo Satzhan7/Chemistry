@@ -71,10 +71,10 @@ const Videos: React.FC<VideosProps> = ({ videos, setVideos }) => {
         },
         {
           id: 7,
-          title: 'Зертханалық жұмыстар - Қауіпсіздік ережелері',
-          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-          description: 'Химия зертханасында жұмыс істеу кезіндегі қауіпсіздік ережелері мен нұсқаулықтар.',
-          chapter: '1-тарау: Негізгі ұғымдар',
+          title: 'Болат пен Шойын',
+          url: 'https://www.youtube.com/live/nPjv8hlbPcM?si=VXjhWRF4Rmy3Ewex',
+          description: 'ҰБТ Химия',
+          chapter: '3-тарау: Химиялық байланыс',
           uploadDate: '2025-09-14'
         },
         {
