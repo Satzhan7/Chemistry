@@ -63,7 +63,7 @@ const Videos: React.FC<VideosProps> = ({ videos, setVideos }) => {
         },
         {
           id: 6,
-          title: 'Органикалық химияға кіріспе',
+          title: 'Органикалық химия эфирі',
           url: 'https://www.youtube.com/live/cfkIic4WGko?si=Po7FKV07TqWn8N_u',
           description: 'ҰБТ Химия',
           chapter: '6-тарау: Органикалық химия',
