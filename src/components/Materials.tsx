@@ -38,7 +38,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
         {
           id: 2,
           title: '№2-лекция. Шикізат, энергия, су',
-          type: 'ppt',
+          type: 'pdf',
           chapter: '2-тарау: Атом құрылысы',
           description: 'Атом құрылысы мен электрон конфигурациясы туралы интерактивті презентация',
           uploadDate: '2025-09-14',
@@ -49,7 +49,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
         {
           id: 3,
           title: '№3-лекция. Су және оның химиялық өнеркәсіпте қолданылуы',
-          type: 'doc',
+          type: 'pdf',
           chapter: '3-тарау: Химиялық байланыс',
           description: 'Ионды, коваленттік және металдық байланыстар туралы толық ақпарат',
           uploadDate: '2025-09-14',
@@ -60,7 +60,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
         {
           id: 4,
           title: '№4-лекция. Күкірт қышқылын өндіру',
-          type: 'image',
+          type: 'pdf',
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'Жоғары ажыратымдылықтағы периодтық кесте суреті',
           uploadDate: '2025-09-14',
@@ -81,8 +81,8 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
         },
         {
           id: 6,
-          title: 'Зертхана қауіпсіздігі нұсқаулығы',
-          type: 'doc',
+          title: '№6-лекция. Азот қышқылы өндірісі',
+          type: 'pdf',
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'Химия зертханасында қауіпсіздік ережелері мен нұсқаулықтар',
           uploadDate: '2025-09-14',
@@ -93,7 +93,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
         {
           id: 7,
           title: 'Органикалық химия кіріспе',
-          type: 'ppt',
+          type: 'pdf',
           chapter: '6-тарау: Органикалық химия',
           description: 'Органикалық қосылыстардың негізгі класстары мен қасиеттері',
           uploadDate: '2025-09-14',
