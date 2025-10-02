@@ -25,7 +25,7 @@ const Videos: React.FC<VideosProps> = ({ videos, setVideos }) => {
           id: 1,
           title: 'Бейорганика',
           url: 'https://www.youtube.com/live/lhcIp6Gi-eU?si=F8woVznOTDF_blKe',
-          description: '0-ден бастап Бейорганикаға дейін.',
+          description: 'ҰБТ Химия',
           chapter: '1-тарау: Негізгі ұғымдар',
           uploadDate: '2025-09-14'
         },
@@ -49,15 +49,15 @@ const Videos: React.FC<VideosProps> = ({ videos, setVideos }) => {
           id: 4,
           title: 'Менделеев кестесін үйреніп ал!',
           url: 'https://youtu.be/gqkt7-Bm0hc?si=h_1w1cmvgUCAivzw',
-          description: 'Кесте жайлы',
+          description: 'ҰБТ Химия',
           chapter: '1-тарау: Негізгі ұғымдар',
           uploadDate: '2025-09-14'
         },
         {
           id: 5,
-          title: 'Қышқылдар мен негіздер - Теория және практика',
-          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-          description: 'Қышқылдар мен негіздердің қасиеттері, pH шкаласы және нейтралдау реакциялары.',
+          title: 'Формула құрастыру',
+          url: 'https://youtu.be/YoxEU_Yk1TU?si=3bu5P5-Ou--1b-1c',
+          description: 'ҰБТ Химия',
           chapter: '5-тарау: Қышқылдар мен негіздер',
           uploadDate: '2025-09-14'
         },
