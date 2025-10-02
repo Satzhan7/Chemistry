@@ -31,9 +31,9 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'Химияның іргелі принциптері мен негізгі ұғымдары туралы толық нұсқаулық',
           uploadDate: '2025-09-14',
-          size: '143.5 MB',
+          size: '4.6 MB',
           url: '#',
-          link: 'https://drive.google.com/file/d/143ZQ7D0z8k0ryjS0dAsj8tYfbQIYN7k0/view?usp=drive_link'
+          link: 'https://drive.google.com/file/d/1l_vsSiCxXk2jPBEfJlD5A8_jVHK3A9f1/view?usp=sharing'
         },
         {
           id: 2,
