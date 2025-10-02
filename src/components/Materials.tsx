@@ -59,14 +59,14 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
         },
         {
           id: 4,
-          title: 'Периодтық кесте диаграммасы',
+          title: '№4-лекция. Күкірт қышқылын өндіру',
           type: 'image',
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'Жоғары ажыратымдылықтағы периодтық кесте суреті',
           uploadDate: '2025-09-14',
-          size: '3.2 MB',
+          size: '5.6 MB',
           url: '#',
-          link: 'https://ptable.com'
+          link: 'https://drive.google.com/file/d/1jCcxmQK9Ej4HZVuKR54KNW4jcMLoiK8y/view?usp=drive_link'
         },
         {
           id: 5,
