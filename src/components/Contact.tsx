@@ -33,8 +33,8 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       label: 'Электрондық пошта',
-      value: 'sissenbaiuly@gmail.com',
-      link: 'sissenbaiuly@gmail.com'
+      value: 'nurzipa.torebek@mail.ru',
+      link: 'nurzipa.torebek@mail.ru'
     },
     {
       icon: Phone,
