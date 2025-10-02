@@ -23,9 +23,9 @@ const Videos: React.FC<VideosProps> = ({ videos, setVideos }) => {
       const sampleVideos: VideoItem[] = [
         {
           id: 1,
-          title: 'Химияның негізгі ұғымдары - Кіріспе',
-          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-          description: 'Химия пәніне кіріспе дәрісі. Негізгі ұғымдар мен принциптерді үйренеміз.',
+          title: 'Бейорганика',
+          url: 'https://www.youtube.com/live/lhcIp6Gi-eU?si=F8woVznOTDF_blKe',
+          description: '0-ден бастап Бейорганикаға дейін.',
           chapter: '1-тарау: Негізгі ұғымдар',
           uploadDate: '2025-09-14'
         },
@@ -40,8 +40,8 @@ const Videos: React.FC<VideosProps> = ({ videos, setVideos }) => {
         {
           id: 3,
           title: 'Химиялық байланыс түрлері',
-          url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-          description: 'Ионды, коваленттік және металдық байланыстардың қалыптасуы мен қасиеттері.',
+          url: 'https://youtu.be/R0mvk69Cceo?si=S-sjmhDGXR_uYAcv',
+          description: 'Есептер.',
           chapter: '3-тарау: Химиялық байланыс',
           uploadDate: '2025-09-14'
         },
