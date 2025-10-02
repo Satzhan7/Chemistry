@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Clock, Award, CheckCircle, XCircle, RotateCcw, History, TrendingUp, Target, Play, Plus, CreditCard as Edit, Save, Trash2, FileText, Link, Upload } from 'lucide-react';
+import { Clock, Award, CheckCircle, XCircle, RotateCcw, History, TrendingUp, Target, Play } from 'lucide-react';
 
 interface Question {
   id: number;
@@ -18,6 +18,7 @@ interface Quiz {
   duration: number;
   questions: Question[];
   difficulty: 'Оңай' | 'Орташа' | 'Қиын';
+  link?: string;
 }
 
 interface TestHistory {
@@ -30,133 +31,19 @@ interface TestHistory {
   questions: Question[];
 }
 
-interface CustomTest {
-  id: number;
-  title: string;
-  description: string;
-  type: 'handwritten' | 'link';
-  content?: string;
-  url?: string;
-  chapter: string;
-  uploadDate: string;
-  isEditing?: boolean;
-}
-
 interface TestsQuizzesProps {
   testHistory: TestHistory[];
   onTestComplete: (result: TestHistory) => void;
 }
 
 const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete }) => {
-  // Initialize with sample custom tests if empty
-  React.useEffect(() => {
-    if (customTests.length === 0) {
-      const sampleTests: CustomTest[] = [
-        {
-          id: 1,
-          title: 'Химияның негізгі ұғымдары бойынша тест',
-          description: 'Атомдар, молекулалар, химиялық элементтер туралы негізгі сұрақтар',
-          type: 'handwritten',
-          content: '1. Алтынның химиялық белгісі қандай?\n2. Көміртек атомында неше протон бар?\n3. Заттың үш негізгі күйін атаңыз.',
-          chapter: '1-тарау: Негізгі ұғымдар',
-          uploadDate: '2024-01-15'
-        },
-        {
-          id: 2,
-          title: 'Атом құрылысы - Google Forms тесті',
-          description: 'Электрон конфигурациясы мен атом құрылысы бойынша интерактивті тест',
-          type: 'link',
-          url: 'https://forms.google.com/atomic-structure-test',
-          chapter: '2-тарау: Атом құрылысы',
-          uploadDate: '2024-01-20'
-        },
-        {
-          id: 3,
-          title: 'Химиялық байланыс түрлері',
-          description: 'Ионды, коваленттік және металдық байланыстар туралы тест',
-          type: 'handwritten',
-          content: '1. Ионды байланыс қалай түзіледі?\n2. Коваленттік байланыстың ерекшеліктері\n3. Металдық байланыстың қасиеттері',
-          chapter: '3-тарау: Химиялық байланыс',
-          uploadDate: '2024-01-25'
-        },
-        {
-          id: 4,
-          title: 'Химиялық реакциялар - Онлайн викторина',
-          description: 'Реакция түрлері мен теңдеулерді теңестіру бойынша тест',
-          type: 'link',
-          url: 'https://kahoot.it/chemical-reactions-quiz',
-          chapter: '4-тарау: Химиялық реакциялар',
-          uploadDate: '2024-02-01'
-        },
-        {
-          id: 5,
-          title: 'Қышқылдар мен негіздер тесті',
-          description: 'pH, қышқылдық-негіздік қасиеттер туралы жазбаша тест',
-          type: 'handwritten',
-          content: '1. pH шкаласы қандай мәндерді қамтиды?\n2. Күшті қышқылдарға мысал келтіріңіз\n3. Нейтралдау реакциясының теңдеуін жазыңыз',
-          chapter: '5-тарау: Қышқылдар мен негіздер',
-          uploadDate: '2024-02-05'
-        },
-        {
-          id: 6,
-          title: 'Органикалық химия - Quizizz тесті',
-          description: 'Органикалық қосылыстардың класстары мен қасиеттері',
-          type: 'link',
-          url: 'https://quizizz.com/organic-chemistry-basics',
-          chapter: '6-тарау: Органикалық химия',
-          uploadDate: '2024-02-10'
-        },
-        {
-          id: 7,
-          title: 'Периодтық кесте бойынша тест',
-          description: 'Элементтердің орналасуы мен қасиеттері туралы сұрақтар',
-          type: 'handwritten',
-          content: '1. Периодтық кестедегі топтар мен периодтар дегеніміз не?\n2. Металдар мен металл емес заттардың орналасуы\n3. Асыл газдардың ерекшеліктері',
-          chapter: '1-тарау: Негізгі ұғымдар',
-          uploadDate: '2024-02-15'
-        },
-        {
-          id: 8,
-          title: 'Зертханалық қауіпсіздік - Google Forms',
-          description: 'Зертханада жұмыс істеу ережелері мен қауіпсіздік шаралары',
-          type: 'link',
-          url: 'https://forms.google.com/lab-safety-test',
-          chapter: '1-тарау: Негізгі ұғымдар',
-          uploadDate: '2024-02-20'
-        },
-        {
-          id: 9,
-          title: 'Химиялық есептеулер тесті',
-          description: 'Молярлық масса, концентрация және стехиометрия есептеулері',
-          type: 'handwritten',
-          content: '1. 2 моль NaCl-дің массасын есептеңіз\n2. 0.5 М ерітіндінің концентрациясын табыңыз\n3. CaCO3 → CaO + CO2 реакциясын теңестіріңіз',
-          chapter: '4-тарау: Химиялық реакциялар',
-          uploadDate: '2024-02-25'
-        },
-        {
-          id: 10,
-          title: 'Жалпы химия - Аралас емтихан',
-          description: 'Барлық тақырыптар бойынша кешенді тест (Mentimeter)',
-          type: 'link',
-          url: 'https://mentimeter.com/general-chemistry-exam',
-          chapter: '1-тарау: Негізгі ұғымдар',
-          uploadDate: '2024-03-01'
-        }
-      ];
-      setCustomTests(sampleTests);
-    }
-  }, [customTests.length]);
-
   const [selectedQuiz, setSelectedQuiz] = useState<Quiz | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<(string | number)[]>([]);
   const [showResults, setShowResults] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState<number>(0);
   const [showHistory, setShowHistory] = useState(false);
-  const [customTests, setCustomTests] = useState<CustomTest[]>([]);
-  const [showAddTest, setShowAddTest] = useState(false);
-  const [newTest, setNewTest] = useState({
-    title: '',
+
   const quizzes: Quiz[] = [
     {
       id: 1,
@@ -165,6 +52,7 @@ const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete
       chapter: '1-тарау',
       duration: 15,
       difficulty: 'Оңай',
+      link: 'https://forms.gle/chemistry-basics-test',
       questions: [
         {
           id: 1,
@@ -198,6 +86,7 @@ const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete
       chapter: '2-тарау',
       duration: 20,
       difficulty: 'Орташа',
+      link: 'https://kahoot.it/atomic-structure-quiz',
       questions: [
         {
           id: 1,
@@ -223,6 +112,7 @@ const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete
       chapter: '3-тарау',
       duration: 25,
       difficulty: 'Қиын',
+      link: 'https://quizizz.com/chemical-bonding-advanced',
       questions: [
         {
           id: 1,
@@ -233,77 +123,55 @@ const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete
           explanation: 'Метан төрт байланыстырушы жұп және жалғыз жұптардың болмауына байланысты тетраэдрлік геометрияға ие.'
         }
       ]
+    },
+    {
+      id: 4,
+      title: 'Химиялық реакциялар мен теңдеулер',
+      description: 'Реакция түрлері мен теңдеулерді теңестіру дағдыларыңызды тексеріңіз.',
+      chapter: '4-тарау',
+      duration: 30,
+      difficulty: 'Орташа',
+      link: 'https://forms.gle/chemical-reactions-test',
+      questions: [
+        {
+          id: 1,
+          question: 'Синтез реакциясының жалпы түрі қандай?',
+          type: 'multiple-choice',
+          options: ['A + B → AB', 'AB → A + B', 'AB + C → AC + B', 'AB + CD → AD + CB'],
+          correctAnswer: 0,
+          explanation: 'Синтез реакциясында екі немесе одан көп зат біріктіріліп, бір күрделі зат түзіледі.'
+        }
+      ]
+    },
+    {
+      id: 5,
+      title: 'Қышқылдар мен негіздер',
+      description: 'pH, қышқылдық-негіздік қасиеттер туралы білімдеріңізді тексеріңіз.',
+      chapter: '5-тарау',
+      duration: 25,
+      difficulty: 'Орташа',
+      link: 'https://mentimeter.com/acids-bases-quiz',
+      questions: [
+        {
+          id: 1,
+          question: 'pH = 7 дегеніміз не?',
+          type: 'multiple-choice',
+          options: ['Қышқыл', 'Негіз', 'Бейтарап', 'Белгісіз'],
+          correctAnswer: 2,
+          explanation: 'pH = 7 бейтарап ортаны білдіреді, мұнда [H+] = [OH-].'
+        }
+      ]
     }
   ];
-
-  const chapters = [
-    '1-тарау: Негізгі ұғымдар',
-    '2-тарау: Атом құрылысы',
-    '3-тарау: Химиялық байланыс',
-    '4-тарау: Химиялық реакциялар',
-    '5-тарау: Қышқылдар мен негіздер',
-    '6-тарау: Органикалық химия'
-  ];
-
-  const addCustomTest = () => {
-    if (newTest.title && (newTest.content || newTest.url)) {
-      const test: CustomTest = {
-        id: Date.now(),
-        title: newTest.title,
-        description: newTest.description,
-        type: newTest.type,
-        content: newTest.type === 'handwritten' ? newTest.content : undefined,
-        url: newTest.type === 'link' ? newTest.url : undefined,
-        chapter: newTest.chapter,
-        uploadDate: new Date().toISOString().split('T')[0]
-      };
-      setCustomTests(prev => [test, ...prev]);
-      setNewTest({
-        title: '',
-        description: '',
-        type: 'handwritten',
-        content: '',
-        url: '',
-        chapter: '1-тарау: Негізгі ұғымдар'
-      });
-      setShowAddTest(false);
-    }
-  };
-
-  const editCustomTest = (id: number) => {
-    setCustomTests(prev => prev.map(test => 
-      test.id === id ? { ...test, isEditing: true } : test
-    ));
-  };
-
-  const saveCustomTest = (id: number, updatedTest: Partial<CustomTest>) => {
-    setCustomTests(prev => prev.map(test => 
-      test.id === id ? { ...test, ...updatedTest, isEditing: false } : test
-    ));
-  };
-
-  const deleteCustomTest = (id: number) => {
-    setCustomTests(prev => prev.filter(test => test.id !== id));
-  };
-
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files && files[0]) {
-      const file = files[0];
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const content = e.target?.result as string;
-        setNewTest(prev => ({ 
-          ...prev, 
-          content,
-          title: prev.title || file.name.replace(/\.[^/.]+$/, "")
-        }));
-      };
-      reader.readAsText(file);
-    }
-  };
 
   const startQuiz = (quiz: Quiz) => {
+    if (quiz.link) {
+      // Open external link if available
+      window.open(quiz.link, '_blank');
+      return;
+    }
+    
+    // Start internal quiz
     setSelectedQuiz(quiz);
     setCurrentQuestionIndex(0);
     setUserAnswers(new Array(quiz.questions.length).fill(''));
@@ -721,6 +589,14 @@ const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete
               <div className="text-sm text-gray-600">
                 Тарау: {quiz.chapter}
               </div>
+              {quiz.link && (
+                <div className="text-sm text-blue-600">
+                  <span className="font-medium">Сыртқы сілтеме:</span> {quiz.link.includes('forms.gle') ? 'Google Forms' : 
+                    quiz.link.includes('kahoot') ? 'Kahoot' : 
+                    quiz.link.includes('quizizz') ? 'Quizizz' : 
+                    quiz.link.includes('mentimeter') ? 'Mentimeter' : 'Онлайн тест'}
+                </div>
+              )}
             </div>
             
             <button
@@ -728,167 +604,10 @@ const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete
               className="w-full flex items-center justify-center space-x-2 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 font-medium"
             >
               <Play className="w-5 h-5" />
-              <span>Сауалнаманы бастау</span>
+              <span>{quiz.link ? 'Сыртқы тестке өту' : 'Сауалнаманы бастау'}</span>
             </button>
           </div>
         ))}
-      </div>
-
-      {/* Add Custom Test Section */}
-      <div className="space-y-6">
-        <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-gray-900">Жеке тесттер</h2>
-          <button
-            onClick={() => setShowAddTest(true)}
-            className="flex items-center space-x-2 bg-gradient-to-r from-green-600 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
-          >
-            <Plus className="w-5 h-5" />
-            <span>Тест қосу</span>
-          </button>
-        </div>
-
-        {/* Add Test Form */}
-        {showAddTest && (
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Жаңа тест қосу</h3>
-            
-            {/* Test Type Selection */}
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Тест түрі</label>
-              <div className="flex space-x-4">
-                <label className="flex items-center space-x-2">
-                  <input
-                    type="radio"
-                    value="handwritten"
-                    checked={newTest.type === 'handwritten'}
-                    onChange={(e) => setNewTest(prev => ({ ...prev, type: e.target.value as 'handwritten' | 'link' }))}
-                    className="w-4 h-4 text-blue-600"
-                  />
-                  <span className="flex items-center space-x-1">
-                    <FileText className="w-4 h-4" />
-                    <span>Қолжазба/Файл</span>
-                  </span>
-                </label>
-                <label className="flex items-center space-x-2">
-                  <input
-                    type="radio"
-                    value="link"
-                    checked={newTest.type === 'link'}
-                    onChange={(e) => setNewTest(prev => ({ ...prev, type: e.target.value as 'handwritten' | 'link' }))}
-                    className="w-4 h-4 text-blue-600"
-                  />
-                  <span className="flex items-center space-x-1">
-                    <Link className="w-4 h-4" />
-                    <span>Сілтеме</span>
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Тест атауы</label>
-                <input
-                  type="text"
-                  value={newTest.title}
-                  onChange={(e) => setNewTest(prev => ({ ...prev, title: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Тест атауын енгізіңіз"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Тарау</label>
-                <select
-                  value={newTest.chapter}
-                  onChange={(e) => setNewTest(prev => ({ ...prev, chapter: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  {chapters.map(chapter => (
-                    <option key={chapter} value={chapter}>{chapter}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <div className="mt-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Сипаттама</label>
-              <textarea
-                value={newTest.description}
-                onChange={(e) => setNewTest(prev => ({ ...prev, description: e.target.value }))}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                rows={2}
-                placeholder="Тест туралы қысқаша сипаттама"
-              />
-            </div>
-
-            {newTest.type === 'handwritten' ? (
-              <div className="mt-4 space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Тест мәтіні</label>
-                  <textarea
-                    value={newTest.content}
-                    onChange={(e) => setNewTest(prev => ({ ...prev, content: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    rows={6}
-                    placeholder="Тест сұрақтарын мұнда жазыңыз немесе файл жүктеңіз"
-                  />
-                </div>
-                <div>
-                  <label className="inline-flex items-center space-x-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer">
-                    <Upload className="w-4 h-4" />
-                    <span>Файл жүктеу</span>
-                    <input
-                      type="file"
-                      onChange={handleFileUpload}
-                      className="hidden"
-                      accept=".txt,.doc,.docx,.pdf"
-                    />
-                  </label>
-                </div>
-              </div>
-            ) : (
-              <div className="mt-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Тест сілтемесі</label>
-                <input
-                  type="url"
-                  value={newTest.url}
-                  onChange={(e) => setNewTest(prev => ({ ...prev, url: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="https://forms.google.com/..."
-                />
-              </div>
-            )}
-
-            <div className="flex justify-end space-x-3 mt-6">
-              <button
-                onClick={() => setShowAddTest(false)}
-                className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
-              >
-                Бас тарту
-              </button>
-              <button
-                onClick={addCustomTest}
-                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                Сақтау
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Custom Tests List */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {customTests.map((test) => (
-            <CustomTestCard
-              key={test.id}
-              test={test}
-              chapters={chapters}
-              onEdit={() => editCustomTest(test.id)}
-              onSave={(updatedTest) => saveCustomTest(test.id, updatedTest)}
-              onDelete={() => deleteCustomTest(test.id)}
-            />
-          ))}
-        </div>
       </div>
 
       {/* Past Tests Section */}
@@ -907,145 +626,6 @@ const TestsQuizzes: React.FC<TestsQuizzesProps> = ({ testHistory, onTestComplete
               </div>
             ))}
           </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-interface CustomTestCardProps {
-  test: CustomTest;
-  chapters: string[];
-  onEdit: () => void;
-  onSave: (updatedTest: Partial<CustomTest>) => void;
-  onDelete: () => void;
-}
-
-const CustomTestCard: React.FC<CustomTestCardProps> = ({ test, chapters, onEdit, onSave, onDelete }) => {
-  const [editData, setEditData] = useState({
-    title: test.title,
-    description: test.description,
-    content: test.content || '',
-    url: test.url || '',
-    chapter: test.chapter
-  });
-
-  const handleSave = () => {
-    onSave({
-      title: editData.title,
-      description: editData.description,
-      content: test.type === 'handwritten' ? editData.content : undefined,
-      url: test.type === 'link' ? editData.url : undefined,
-      chapter: editData.chapter
-    });
-  };
-
-  if (test.isEditing) {
-    return (
-      <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-        <div className="space-y-3">
-          <input
-            type="text"
-            value={editData.title}
-            onChange={(e) => setEditData(prev => ({ ...prev, title: e.target.value }))}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-            placeholder="Тест атауы"
-          />
-          <select
-            value={editData.chapter}
-            onChange={(e) => setEditData(prev => ({ ...prev, chapter: e.target.value }))}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-          >
-            {chapters.map(chapter => (
-              <option key={chapter} value={chapter}>{chapter}</option>
-            ))}
-          </select>
-          <textarea
-            value={editData.description}
-            onChange={(e) => setEditData(prev => ({ ...prev, description: e.target.value }))}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-            rows={2}
-            placeholder="Сипаттама"
-          />
-          {test.type === 'handwritten' ? (
-            <textarea
-              value={editData.content}
-              onChange={(e) => setEditData(prev => ({ ...prev, content: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-              rows={4}
-              placeholder="Тест мәтіні"
-            />
-          ) : (
-            <input
-              type="url"
-              value={editData.url}
-              onChange={(e) => setEditData(prev => ({ ...prev, url: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-              placeholder="Тест сілтемесі"
-            />
-          )}
-          <div className="flex justify-end space-x-2">
-            <button
-              onClick={handleSave}
-              className="flex items-center space-x-1 px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700 transition-colors"
-            >
-              <Save className="w-3 h-3" />
-              <span>Сақтау</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-      <div className="flex justify-between items-start mb-4">
-        <h3 className="text-lg font-semibold text-gray-900">{test.title}</h3>
-        <div className="flex items-center space-x-1">
-          {test.type === 'handwritten' ? (
-            <FileText className="w-4 h-4 text-blue-600" />
-          ) : (
-            <Link className="w-4 h-4 text-green-600" />
-          )}
-        </div>
-      </div>
-      
-      <p className="text-gray-600 text-sm mb-4">{test.description}</p>
-      
-      <div className="text-xs text-gray-500 mb-4">
-        <div className="bg-gray-100 px-2 py-1 rounded inline-block mb-1">{test.chapter}</div>
-        <div>Қосылған: {test.uploadDate}</div>
-      </div>
-
-      <div className="flex justify-between items-center">
-        {test.type === 'link' && test.url ? (
-          <a
-            href={test.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-1 text-blue-600 hover:text-blue-700 text-sm"
-          >
-            <Link className="w-4 h-4" />
-            <span>Тестті ашу</span>
-          </a>
-        ) : (
-          <span className="text-sm text-gray-500">Қолжазба тест</span>
-        )}
-        
-        <div className="flex space-x-2">
-          <button
-            onClick={onEdit}
-            className="p-1 text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            <Edit className="w-4 h-4" />
-          </button>
-          <button
-            onClick={onDelete}
-            className="p-1 text-gray-600 hover:text-red-600 transition-colors"
-          >
-            <Trash2 className="w-4 h-4" />
-          </button>
         </div>
       </div>
     </div>
