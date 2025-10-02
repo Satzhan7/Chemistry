@@ -86,9 +86,9 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'Химия зертханасында қауіпсіздік ережелері мен нұсқаулықтар',
           uploadDate: '2025-09-14',
-          size: '1.5 MB',
+          size: '3.5 MB',
           url: '#',
-          link: 'https://example.com/lab-safety-guide'
+          link: 'https://drive.google.com/file/d/1aNpkUCiA38zO9cCQ4e6pzHv9S3HosmTQ/view?usp=sharing'
         },
         {
           id: 7,
