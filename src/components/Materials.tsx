@@ -97,7 +97,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           chapter: '6-тарау: Органикалық химия',
           description: 'Органикалық қосылыстардың негізгі класстары мен қасиеттері',
           uploadDate: '2025-09-14',
-          size: '5.3 MB',
+          size: '1.1 MB',
           url: '#',
           link: 'https://example.com/organic-chemistry-intro'
         },
@@ -108,7 +108,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           chapter: '5-тарау: Қышқылдар мен негіздер',
           description: 'Аррениус, Бренстед-Лоури және Льюис теорияларының салыстырмалы талдауы',
           uploadDate: '2025-09-14',
-          size: '2.8 MB',
+          size: '1.4 MB',
           url: '#',
           link: 'https://example.com/acids-bases-theory'
         },
