@@ -48,14 +48,14 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
         },
         {
           id: 3,
-          title: 'Химиялық байланыс түрлері',
+          title: '№3-лекция. Су және оның химиялық өнеркәсіпте қолданылуы',
           type: 'doc',
           chapter: '3-тарау: Химиялық байланыс',
           description: 'Ионды, коваленттік және металдық байланыстар туралы толық ақпарат',
-          uploadDate: '2024-01-25',
-          size: '1.8 MB',
+          uploadDate: '2025-09-14',
+          size: '11.4 MB',
           url: '#',
-          link: 'https://example.com/chemical-bonding-guide'
+          link: 'https://drive.google.com/file/d/1vj8-kneo_Kseqw1BUkJHmkv2KcJUISkp/view?usp=drive_link'
         },
         {
           id: 4,
@@ -63,7 +63,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'image',
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'Жоғары ажыратымдылықтағы периодтық кесте суреті',
-          uploadDate: '2024-02-01',
+          uploadDate: '2025-09-14',
           size: '3.2 MB',
           url: '#',
           link: 'https://ptable.com'
@@ -74,7 +74,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'pdf',
           chapter: '4-тарау: Химиялық реакциялар',
           description: 'Реакция түрлері мен олардың сипаттамалары',
-          uploadDate: '2024-02-05',
+          uploadDate: '2025-09-14',
           size: '2.1 MB',
           url: '#',
           link: 'https://example.com/chemical-reactions-classification'
@@ -85,7 +85,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'doc',
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'Химия зертханасында қауіпсіздік ережелері мен нұсқаулықтар',
-          uploadDate: '2024-02-10',
+          uploadDate: '2025-09-14',
           size: '1.5 MB',
           url: '#',
           link: 'https://example.com/lab-safety-guide'
@@ -96,7 +96,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'ppt',
           chapter: '6-тарау: Органикалық химия',
           description: 'Органикалық қосылыстардың негізгі класстары мен қасиеттері',
-          uploadDate: '2024-02-15',
+          uploadDate: '2025-09-14',
           size: '5.3 MB',
           url: '#',
           link: 'https://example.com/organic-chemistry-intro'
@@ -107,7 +107,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'pdf',
           chapter: '5-тарау: Қышқылдар мен негіздер',
           description: 'Аррениус, Бренстед-Лоури және Льюис теорияларының салыстырмалы талдауы',
-          uploadDate: '2024-02-20',
+          uploadDate: '2025-09-14',
           size: '2.8 MB',
           url: '#',
           link: 'https://example.com/acids-bases-theory'
@@ -119,7 +119,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'doc',
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'Барлық маңызды химиялық формулалар мен теңдеулердің толық тізімі',
-          uploadDate: '2024-02-25',
+          uploadDate: '2025-09-14',
           size: '0.8 MB',
           url: 'https://example.com/formulas',
           isLink: true,
@@ -131,7 +131,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'doc',
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'Онлайн интерактивті периодтық кесте - элементтер туралы толық ақпарат',
-          uploadDate: '2024-03-01',
+          uploadDate: '2025-09-14',
           url: 'https://ptable.com',
           isLink: true,
           link: 'https://ptable.com'
@@ -142,7 +142,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'doc',
           chapter: '4-тарау: Химиялық реакциялар',
           description: 'Молярлық масса, концентрация және стехиометрия есептеулері үшін онлайн құрал',
-          uploadDate: '2024-03-05',
+          uploadDate: '2025-09-14',
           url: 'https://example.com/calculator',
           isLink: true,
           link: 'https://example.com/calculator'
@@ -153,7 +153,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'doc',
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'Химиялық терминдер мен анықтамалардың толық сөздігі',
-          uploadDate: '2024-03-10',
+          uploadDate: '2025-09-14',
           url: 'https://example.com/dictionary',
           isLink: true,
           link: 'https://example.com/dictionary'
@@ -164,7 +164,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'doc',
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'Практикалық жұмыстар мен эксперименттер жүргізу бойынша нұсқаулықтар',
-          uploadDate: '2024-03-15',
+          uploadDate: '2025-09-14',
           url: 'https://example.com/lab-guide',
           isLink: true,
           link: 'https://example.com/lab-guide'
@@ -175,7 +175,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'doc',
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'YouTube арнасындағы химия дәрістерінің толық жинағы',
-          uploadDate: '2024-03-20',
+          uploadDate: '2025-09-14',
           url: 'https://youtube.com/chemistry-lectures',
           isLink: true,
           link: 'https://youtube.com/chemistry-lectures'
@@ -186,7 +186,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'doc',
           chapter: '4-тарау: Химиялық реакциялар',
           description: 'Виртуалды зертханада химиялық реакцияларды модельдеу',
-          uploadDate: '2024-03-25',
+          uploadDate: '2025-09-14',
           url: 'https://example.com/simulator',
           isLink: true,
           link: 'https://example.com/simulator'
@@ -197,7 +197,7 @@ const Materials: React.FC<MaterialsProps> = ({ materials, setMaterials }) => {
           type: 'doc',
           chapter: '1-тарау: Негізгі ұғымдар',
           description: 'ҰБТ және басқа емтихандарға дайындалу үшін материалдар жинағы',
-          uploadDate: '2024-03-30',
+          uploadDate: '2025-09-14',
           url: 'https://example.com/exam-prep',
           isLink: true,
           link: 'https://example.com/exam-prep'
